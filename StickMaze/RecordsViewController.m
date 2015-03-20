@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  UIViewController+RecordsViewController.m
 //  StickMaze
 //
 //  Created by Zackary Neil Chaulk on 2015-03-01.
 //  Copyright (c) 2015 Zackary Neil Chaulk. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RecordsViewController.h"
 
-@interface ViewController ()
+@interface RecordsViewController()
 
 @end
 
-@implementation ViewController
+@implementation RecordsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

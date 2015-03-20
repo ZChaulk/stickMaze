@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		4636721A1AA3EDB1000E5391 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 463672191AA3EDB1000E5391 /* main.m */; };
 		4636721D1AA3EDB1000E5391 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4636721C1AA3EDB1000E5391 /* AppDelegate.m */; };
-		463672201AA3EDB1000E5391 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4636721F1AA3EDB1000E5391 /* ViewController.m */; };
-		463672231AA3EDB1000E5391 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463672211AA3EDB1000E5391 /* Main.storyboard */; };
 		463672251AA3EDB1000E5391 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 463672241AA3EDB1000E5391 /* Images.xcassets */; };
 		463672281AA3EDB1000E5391 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 463672261AA3EDB1000E5391 /* LaunchScreen.xib */; };
 		463672341AA3EDB1000E5391 /* StickMazeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 463672331AA3EDB1000E5391 /* StickMazeTests.m */; };
+		4636723F1AA3EED4000E5391 /* RecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4636723E1AA3EED4000E5391 /* RecordsViewController.m */; };
+		463672421AA3F35D000E5391 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 463672411AA3F35D000E5391 /* GameViewController.m */; };
+		46393B781AB5F504005585CF /* PauseMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46393B761AB5F504005585CF /* PauseMenuViewController.m */; };
+		46393B791AB5F504005585CF /* PauseMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46393B771AB5F504005585CF /* PauseMenuViewController.xib */; };
+		46393B7B1AB60C95005585CF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46393B7A1AB60C95005585CF /* HomeViewController.m */; };
+		46393B7E1AB612AE005585CF /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46393B7D1AB612AE005585CF /* GameViewController.xib */; };
+		46393B801AB612E2005585CF /* RecordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46393B7F1AB612E2005585CF /* RecordsViewController.xib */; };
+		468DADCD1ABC666000869231 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468DADCC1ABC666000869231 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +38,23 @@
 		463672191AA3EDB1000E5391 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4636721B1AA3EDB1000E5391 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4636721C1AA3EDB1000E5391 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4636721E1AA3EDB1000E5391 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4636721F1AA3EDB1000E5391 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		463672221AA3EDB1000E5391 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		463672241AA3EDB1000E5391 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		463672271AA3EDB1000E5391 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4636722D1AA3EDB1000E5391 /* StickMazeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StickMazeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		463672321AA3EDB1000E5391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463672331AA3EDB1000E5391 /* StickMazeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StickMazeTests.m; sourceTree = "<group>"; };
+		4636723D1AA3EED4000E5391 /* RecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordsViewController.h; sourceTree = "<group>"; };
+		4636723E1AA3EED4000E5391 /* RecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordsViewController.m; sourceTree = "<group>"; };
+		463672401AA3F35D000E5391 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		463672411AA3F35D000E5391 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		46393B751AB5F504005585CF /* PauseMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PauseMenuViewController.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.h; sourceTree = "<group>"; };
+		46393B761AB5F504005585CF /* PauseMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PauseMenuViewController.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.m; sourceTree = "<group>"; };
+		46393B771AB5F504005585CF /* PauseMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PauseMenuViewController.xib; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.xib; sourceTree = "<group>"; };
+		46393B7A1AB60C95005585CF /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/HomeViewController.m; sourceTree = "<group>"; };
+		46393B7C1AB60CC5005585CF /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		46393B7D1AB612AE005585CF /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		46393B7F1AB612E2005585CF /* RecordsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordsViewController.xib; sourceTree = "<group>"; };
+		468DADCC1ABC666000869231 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +96,20 @@
 		463672161AA3EDB1000E5391 /* StickMaze */ = {
 			isa = PBXGroup;
 			children = (
+				46393B751AB5F504005585CF /* PauseMenuViewController.h */,
+				46393B761AB5F504005585CF /* PauseMenuViewController.m */,
+				46393B771AB5F504005585CF /* PauseMenuViewController.xib */,
+				463672401AA3F35D000E5391 /* GameViewController.h */,
+				463672411AA3F35D000E5391 /* GameViewController.m */,
+				4636723D1AA3EED4000E5391 /* RecordsViewController.h */,
+				4636723E1AA3EED4000E5391 /* RecordsViewController.m */,
+				46393B7D1AB612AE005585CF /* GameViewController.xib */,
+				46393B7F1AB612E2005585CF /* RecordsViewController.xib */,
 				4636721B1AA3EDB1000E5391 /* AppDelegate.h */,
 				4636721C1AA3EDB1000E5391 /* AppDelegate.m */,
-				4636721E1AA3EDB1000E5391 /* ViewController.h */,
-				4636721F1AA3EDB1000E5391 /* ViewController.m */,
-				463672211AA3EDB1000E5391 /* Main.storyboard */,
+				468DADCC1ABC666000869231 /* Main.storyboard */,
+				46393B7A1AB60C95005585CF /* HomeViewController.m */,
+				46393B7C1AB60CC5005585CF /* HomeViewController.h */,
 				463672241AA3EDB1000E5391 /* Images.xcassets */,
 				463672261AA3EDB1000E5391 /* LaunchScreen.xib */,
 				463672171AA3EDB1000E5391 /* Supporting Files */,
@@ -199,9 +223,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				463672231AA3EDB1000E5391 /* Main.storyboard in Resources */,
+				468DADCD1ABC666000869231 /* Main.storyboard in Resources */,
 				463672281AA3EDB1000E5391 /* LaunchScreen.xib in Resources */,
+				46393B791AB5F504005585CF /* PauseMenuViewController.xib in Resources */,
+				46393B801AB612E2005585CF /* RecordsViewController.xib in Resources */,
 				463672251AA3EDB1000E5391 /* Images.xcassets in Resources */,
+				46393B7E1AB612AE005585CF /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,8 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				463672201AA3EDB1000E5391 /* ViewController.m in Sources */,
+				4636723F1AA3EED4000E5391 /* RecordsViewController.m in Sources */,
+				463672421AA3F35D000E5391 /* GameViewController.m in Sources */,
 				4636721D1AA3EDB1000E5391 /* AppDelegate.m in Sources */,
+				46393B781AB5F504005585CF /* PauseMenuViewController.m in Sources */,
+				46393B7B1AB60C95005585CF /* HomeViewController.m in Sources */,
 				4636721A1AA3EDB1000E5391 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,14 +274,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		463672211AA3EDB1000E5391 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				463672221AA3EDB1000E5391 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		463672261AA3EDB1000E5391 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -414,6 +436,7 @@
 				463672391AA3EDB1000E5391 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4636723A1AA3EDB1000E5391 /* Build configuration list for PBXNativeTarget "StickMazeTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +445,7 @@
 				4636723C1AA3EDB1000E5391 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
