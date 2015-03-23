@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Zackary Neil Chaulk. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <GLKit/GLKit.h>
 #import "PauseMenuViewController.h"
 
 @protocol GameViewControllerDelegate <NSObject>
@@ -16,9 +16,14 @@
 @end
 
 
-@interface GameViewController : UIViewController<PauseMenuProtocolDelegate>
-@property id<GameViewControllerDelegate> delegate;
+@interface GameViewController : GLKViewController<PauseMenuProtocolDelegate>
+@property id<GameViewControllerDelegate> gvDelegate;
 
 - (IBAction)pause:(id)sender;
+
+- (void)setupGL;
+- (void)tearDownGL;
+- (void)setupOrthographicView;
+@property (strong, nonatomic) EAGLContext *context;
 
 @end

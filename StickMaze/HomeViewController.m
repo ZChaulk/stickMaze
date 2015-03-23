@@ -102,7 +102,7 @@
 
 - (IBAction)start:(id)sender {
     GameViewController *gvc = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
-    gvc.delegate = self;
+    gvc.gvDelegate = self;
     [self presentViewController:gvc animated:NO completion:nil];
 
 }
