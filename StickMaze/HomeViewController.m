@@ -88,7 +88,7 @@
     glVertexPointer(2, GL_FLOAT, 0, linePoints);
     glEnable(GL_LINE_SMOOTH);
     glLineWidth(12);
-    glDrawArrays(GL_LINES, 0, 24);
+    glDrawArrays(GL_LINES, 0, 10);
     
 //Draw HEad?
     

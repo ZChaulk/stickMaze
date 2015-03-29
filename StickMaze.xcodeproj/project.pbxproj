@@ -12,14 +12,15 @@
 		463672251AA3EDB1000E5391 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 463672241AA3EDB1000E5391 /* Images.xcassets */; };
 		463672281AA3EDB1000E5391 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 463672261AA3EDB1000E5391 /* LaunchScreen.xib */; };
 		463672341AA3EDB1000E5391 /* StickMazeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 463672331AA3EDB1000E5391 /* StickMazeTests.m */; };
-		4636723F1AA3EED4000E5391 /* RecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4636723E1AA3EED4000E5391 /* RecordsViewController.m */; };
-		463672421AA3F35D000E5391 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 463672411AA3F35D000E5391 /* GameViewController.m */; };
 		46393B781AB5F504005585CF /* PauseMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46393B761AB5F504005585CF /* PauseMenuViewController.m */; };
 		46393B791AB5F504005585CF /* PauseMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46393B771AB5F504005585CF /* PauseMenuViewController.xib */; };
 		46393B7B1AB60C95005585CF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46393B7A1AB60C95005585CF /* HomeViewController.m */; };
 		46393B7E1AB612AE005585CF /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46393B7D1AB612AE005585CF /* GameViewController.xib */; };
 		46393B801AB612E2005585CF /* RecordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46393B7F1AB612E2005585CF /* RecordsViewController.xib */; };
+		4680A17E1AC775DF0084DD06 /* StickMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 4680A17D1AC775DF0084DD06 /* StickMan.m */; };
 		468DADCD1ABC666000869231 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468DADCC1ABC666000869231 /* Main.storyboard */; };
+		469F97011AC74E8300DD6D11 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F97001AC74E8300DD6D11 /* GameViewController.m */; };
+		469F97041AC74F4C00DD6D11 /* RecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F97031AC74F4C00DD6D11 /* RecordsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,10 +44,6 @@
 		4636722D1AA3EDB1000E5391 /* StickMazeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StickMazeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		463672321AA3EDB1000E5391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463672331AA3EDB1000E5391 /* StickMazeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StickMazeTests.m; sourceTree = "<group>"; };
-		4636723D1AA3EED4000E5391 /* RecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordsViewController.h; sourceTree = "<group>"; };
-		4636723E1AA3EED4000E5391 /* RecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordsViewController.m; sourceTree = "<group>"; };
-		463672401AA3F35D000E5391 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		463672411AA3F35D000E5391 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		46393B751AB5F504005585CF /* PauseMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PauseMenuViewController.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.h; sourceTree = "<group>"; };
 		46393B761AB5F504005585CF /* PauseMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PauseMenuViewController.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.m; sourceTree = "<group>"; };
 		46393B771AB5F504005585CF /* PauseMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PauseMenuViewController.xib; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.xib; sourceTree = "<group>"; };
@@ -54,7 +51,13 @@
 		46393B7C1AB60CC5005585CF /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		46393B7D1AB612AE005585CF /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		46393B7F1AB612E2005585CF /* RecordsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordsViewController.xib; sourceTree = "<group>"; };
+		4680A17C1AC775DF0084DD06 /* StickMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StickMan.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/StickMan.h; sourceTree = "<group>"; };
+		4680A17D1AC775DF0084DD06 /* StickMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StickMan.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/StickMan.m; sourceTree = "<group>"; };
 		468DADCC1ABC666000869231 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/Main.storyboard; sourceTree = "<group>"; };
+		469F96FF1AC74E8300DD6D11 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/GameViewController.h; sourceTree = "<group>"; };
+		469F97001AC74E8300DD6D11 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/GameViewController.m; sourceTree = "<group>"; };
+		469F97021AC74F4C00DD6D11 /* RecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordsViewController.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/RecordsViewController.h; sourceTree = "<group>"; };
+		469F97031AC74F4C00DD6D11 /* RecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordsViewController.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/RecordsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,13 +99,15 @@
 		463672161AA3EDB1000E5391 /* StickMaze */ = {
 			isa = PBXGroup;
 			children = (
+				4680A17C1AC775DF0084DD06 /* StickMan.h */,
+				4680A17D1AC775DF0084DD06 /* StickMan.m */,
 				46393B751AB5F504005585CF /* PauseMenuViewController.h */,
 				46393B761AB5F504005585CF /* PauseMenuViewController.m */,
 				46393B771AB5F504005585CF /* PauseMenuViewController.xib */,
-				463672401AA3F35D000E5391 /* GameViewController.h */,
-				463672411AA3F35D000E5391 /* GameViewController.m */,
-				4636723D1AA3EED4000E5391 /* RecordsViewController.h */,
-				4636723E1AA3EED4000E5391 /* RecordsViewController.m */,
+				469F97021AC74F4C00DD6D11 /* RecordsViewController.h */,
+				469F97031AC74F4C00DD6D11 /* RecordsViewController.m */,
+				469F96FF1AC74E8300DD6D11 /* GameViewController.h */,
+				469F97001AC74E8300DD6D11 /* GameViewController.m */,
 				46393B7D1AB612AE005585CF /* GameViewController.xib */,
 				46393B7F1AB612E2005585CF /* RecordsViewController.xib */,
 				4636721B1AA3EDB1000E5391 /* AppDelegate.h */,
@@ -246,8 +251,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4636723F1AA3EED4000E5391 /* RecordsViewController.m in Sources */,
-				463672421AA3F35D000E5391 /* GameViewController.m in Sources */,
+				469F97011AC74E8300DD6D11 /* GameViewController.m in Sources */,
+				469F97041AC74F4C00DD6D11 /* RecordsViewController.m in Sources */,
+				4680A17E1AC775DF0084DD06 /* StickMan.m in Sources */,
 				4636721D1AA3EDB1000E5391 /* AppDelegate.m in Sources */,
 				46393B781AB5F504005585CF /* PauseMenuViewController.m in Sources */,
 				46393B7B1AB60C95005585CF /* HomeViewController.m in Sources */,

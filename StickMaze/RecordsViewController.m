@@ -1,19 +1,14 @@
 //
-//  UIViewController+RecordsViewController.m
+//  RecordsViewController.m
 //  StickMaze
 //
-//  Created by Zackary Neil Chaulk on 2015-03-01.
+//  Created by Zackary Neil Chaulk on 2015-03-28.
 //  Copyright (c) 2015 Zackary Neil Chaulk. All rights reserved.
 //
 
 #import "RecordsViewController.h"
 
-@interface RecordsViewController()
-
-@end
-
 @implementation RecordsViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -23,5 +18,4 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 @end

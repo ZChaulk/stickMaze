@@ -1,17 +1,14 @@
 //
-//  UIViewController+GameViewController.m
+//  GameViewController.m
 //  StickMaze
 //
-//  Created by Zackary Neil Chaulk on 2015-03-01.
+//  Created by Zackary Neil Chaulk on 2015-03-28.
 //  Copyright (c) 2015 Zackary Neil Chaulk. All rights reserved.
 //
 
 #import "GameViewController.h"
+
 #import <OpenGLES/ES1/gl.h>
-@interface GameViewController()
-
-@end
-
 @implementation GameViewController
 
 - (void)viewDidLoad {
@@ -22,23 +19,95 @@
         NSLog(@"Failed to create ES context");
     }
     
+    player = [[StickMan alloc] init];
+    
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
-    
+    [self setUpMotion];
     [self setupGL];
     
 }
-- (void)update
-{
-    [self setupOrthographicView];
+//motion section****************
+
+- (void)setUpMotion{
+    _avgAccX = _avgAccY = _avgAccZ = gravity = 0;
+    gBase = NORMAL;
+    motionMan = [[CMMotionManager alloc] init];
+    if(!motionMan.gyroAvailable){
+        NSLog(@"No gyro found.");
+        return;
+    }
+    if(!motionMan.accelerometerAvailable)
+    {
+        NSLog(@"No accelerometer found.");
+        return;
+    }
+    
+    motionMan.accelerometerUpdateInterval = 0.05;
+    [motionMan startAccelerometerUpdates];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(pollMotion:) userInfo:nil repeats:YES];
+    
 }
+
+-(void) pollMotion:(NSTimer *)timer{
+    CMAcceleration acc = motionMan.accelerometerData.acceleration;
+    float alpha = 0.1;
+    _avgAccX = alpha*acc.x + (1-alpha)*_avgAccX;
+    _avgAccY = alpha*acc.y + (1-alpha)*_avgAccY;
+    _avgAccZ = alpha*acc.z + (1-alpha)*_avgAccZ;
+    gravity = atan2f(_avgAccY, _avgAccX)*180/3.14 + 90;
+    if(gravity < 0)
+        gravity += 360;
+    [self updateForces];
+}
+
+-(void) updateForces{
+    if(fabs(gravity) < 30){
+        gBase = NORMAL;
+    }
+    else if(fabs(gravity - 90) < 30){
+        gBase = RIGHT;
+    }
+    else if(fabs(gravity - 180) < 30){
+        gBase = INVERTED;
+    }
+    else if(fabs(gravity - 270) < 30){
+        gBase = LEFT;
+    }
+    
+    float adjustedGravity = gravity;
+    if(gBase == RIGHT){
+        adjustedGravity -= 90;
+    }
+    else if(gBase == INVERTED){
+        adjustedGravity -= 180;
+    }
+    else if(gBase == LEFT){
+        adjustedGravity -= 270;
+    }
+    
+    NSLog(@"%f", adjustedGravity);
+    
+    if(fabs(adjustedGravity) < 10)
+        player.state = STANDING;
+    else if(adjustedGravity > 0 && adjustedGravity < 60)
+        player.state = RUNNING_RIGHT;
+    else if(adjustedGravity < 0 && adjustedGravity > -60)
+        player.state = RUNNING_LEFT;
+}
+
+//openGL Section***********
 
 - (void)setupGL
 {
     [EAGLContext setCurrentContext:self.context];
     
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+}
+- (void)update
+{
+    [self setupOrthographicView];
 }
 
 - (void)tearDownGL
@@ -69,29 +138,22 @@
     glClear(GL_COLOR_BUFFER_BIT);
     // enable the vertex array rendering
     glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_COLOR_ARRAY);
     
-    const GLubyte colors[] = {
-        0, 0, 0, 255
-        
-    };
-    const GLfloat linePoints[] = {
-        0, -0.5, -0.25, -1, //leg1
-        0, -0.5, 0.25, -1, //leg2
-        0, -0.5, 0, 0.2, //body
-        0, 0.18, -0.2, -0.3, //arm1
-        0, 0.18, 0.2, -0.3 //arm2 (down)
+    
+    GLfloat linePoints[] = {
+        -5, -1, 5, -1
     };
     
-    
-    glColorPointer(4, GL_UNSIGNED_BYTE, 0, colors);
     glVertexPointer(2, GL_FLOAT, 0, linePoints);
-    glEnable(GL_LINE_SMOOTH);
-    glLineWidth(12);
-    glDrawArrays(GL_LINES, 0, 24);
-    
-    //Draw HEad?
-    
+    glDrawArrays(GL_LINES, 0, 2);
+    glEnableClientState(GL_COLOR_ARRAY);
+    if(gBase == LEFT)
+        glRotatef(-90, 0, 0, 1);
+    else if(gBase == INVERTED)
+        glRotatef(180, 0, 0, 1);
+    else if(gBase == RIGHT)
+        glRotatef(90, 0, 0, 1);
+    [player drawOpenGLES1];
 }
 
 
@@ -105,7 +167,7 @@
     pmvc.delegate = self;
     [self presentViewController:pmvc animated:YES completion:nil];
 }
- 
+
 -(void)resumeGame:(PauseMenuViewController *)pauseMenuViewController{
     [self dismissViewControllerAnimated:YES completion:nil];
     
