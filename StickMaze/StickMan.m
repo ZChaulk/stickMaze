@@ -15,6 +15,7 @@
     if(self){
         self.state = STANDING;
         runLeftTic = runRightTic = standUpTic = fallingTic = 0;
+        self.xPos = self.yPos = 0;
         glGenTextures(1, &_standingID);
         glGenTextures(3, _runLeftID);
         glGenTextures(3, _runRightID);
@@ -51,7 +52,6 @@
     
     int texWidth = (int)CGImageGetWidth(texImage);
     int texHeight = (int)CGImageGetHeight(texImage);
-    NSLog(@"%d, %d", texWidth, texHeight);
     CGColorSpaceRef colorspace = CGImageGetColorSpace(texImage);
     
  
@@ -122,8 +122,8 @@
         // pos  tex
         -0.5,1,   0,0,
         0.5,1,  1,0,
-        -0.5,0,   0,1,
-        0.5,0,  1,1
+        -0.5,-1,   0,1,
+        0.5,-1,  1,1
     };
 
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);

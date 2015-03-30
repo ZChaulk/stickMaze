@@ -83,6 +83,8 @@
     else if(gBase == LEFT){
         adjustedGravity -= 270;
     }
+    if(adjustedGravity < 0)
+        adjustedGravity += 360;
     
     if(fabs(adjustedGravity) < 10)
         player.state = STANDING;
@@ -90,7 +92,7 @@
         player.state = RUNNING_RIGHT;
     else if(adjustedGravity >300 && adjustedGravity < 350)
         player.state = RUNNING_LEFT;
-    
+    //NSLog(@"%f", gravity);
 }
 
 //openGL Section***********
@@ -99,6 +101,7 @@
 {
     [EAGLContext setCurrentContext:self.context];
     player = [[StickMan alloc] init];
+    mazeModel = [[MazeModel alloc] initWithSize:5];
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 }
 - (void)update
@@ -132,7 +135,60 @@
     glClear(GL_COLOR_BUFFER_BIT);
     // enable the vertex array rendering
     glEnableClientState(GL_VERTEX_ARRAY);
-    [player drawOpenGLES1];
+    
+    glPushMatrix();{
+        int orientation = 0;
+        if(gBase == LEFT)
+            orientation = 3;
+        else if(gBase == RIGHT)
+            orientation = 1;
+        else if(gBase == INVERTED)
+            orientation = 2;
+        
+        
+        if(player.state == RUNNING_RIGHT){
+            if(![mazeModel hitsWallRight:player.xPos yPos:player.yPos orientation:orientation]){
+                if(orientation == 0) // normal
+                    player.xPos += 0.1;
+                else if(orientation == 1) //Right
+                    player.yPos += 0.1;
+                else if (orientation == 2) //Inverted
+                    player.xPos -= 0.1;
+                else //Left
+                    player.yPos -= 0.1;
+                    
+            }
+            
+        }
+        else if(player.state == RUNNING_LEFT){
+            if(![mazeModel hitsWallLeft:player.xPos yPos:player.yPos orientation:orientation]){
+                if(orientation == 0){
+                    player.xPos -= 0.1;
+                    if(player.xPos < 0)
+                        player.xPos = 0;
+                }
+            }
+        }
+        //NSLog(@"%f, %f", player.xPos, player.yPos);
+        glTranslatef(-player.xPos, -player.yPos, 0);
+        [mazeModel drawOpenGLES1];
+    }glPopMatrix();
+    
+    glPushMatrix();{
+        if(gBase == LEFT){
+            
+            glRotatef(-90, 0, 0, 1);
+        }
+        else if(gBase == RIGHT){
+           // glTranslatef(-0.15, 0, 0);
+            glRotatef(90, 0, 0, 1);
+        }
+        else if(gBase == INVERTED){
+            glRotatef(180, 0, 0, 1);
+        }
+    
+        [player drawOpenGLES1];
+    }glPopMatrix();
 }
 
 

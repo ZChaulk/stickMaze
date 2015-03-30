@@ -10,6 +10,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "PauseMenuViewController.h"
 #import "StickMan.h"
+#import "MazeModel.h"
 @protocol GameViewControllerDelegate <NSObject>
 
 -(void)notifyGameDone;
@@ -28,6 +29,7 @@ typedef enum{
     NSTimer *timer;
     float _avgAccX, _avgAccY, _avgAccZ, gravity;
     StickMan *player;
+    MazeModel *mazeModel;
     gravityBase gBase;
 }
 @property id<GameViewControllerDelegate> gvDelegate;

@@ -34,6 +34,8 @@
 		46A7F5691AC8F29800B4E49C /* runningRight1.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5631AC8F29800B4E49C /* runningRight1.png */; };
 		46A7F56A1AC8F29800B4E49C /* runningRight2.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5641AC8F29800B4E49C /* runningRight2.png */; };
 		46A7F56B1AC8F29800B4E49C /* runningRight3.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5651AC8F29800B4E49C /* runningRight3.png */; };
+		46A7F5701AC8FBC500B4E49C /* MazeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A7F56D1AC8FBC500B4E49C /* MazeCell.m */; };
+		46A7F5711AC8FBC500B4E49C /* MazeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A7F56F1AC8FBC500B4E49C /* MazeModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,10 @@
 		46A7F5631AC8F29800B4E49C /* runningRight1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningRight1.png; sourceTree = "<group>"; };
 		46A7F5641AC8F29800B4E49C /* runningRight2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningRight2.png; sourceTree = "<group>"; };
 		46A7F5651AC8F29800B4E49C /* runningRight3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningRight3.png; sourceTree = "<group>"; };
+		46A7F56C1AC8FBC500B4E49C /* MazeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MazeCell.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeCell.h; sourceTree = "<group>"; };
+		46A7F56D1AC8FBC500B4E49C /* MazeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MazeCell.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeCell.m; sourceTree = "<group>"; };
+		46A7F56E1AC8FBC500B4E49C /* MazeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MazeModel.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.h; sourceTree = "<group>"; };
+		46A7F56F1AC8FBC500B4E49C /* MazeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MazeModel.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,10 @@
 		463672161AA3EDB1000E5391 /* StickMaze */ = {
 			isa = PBXGroup;
 			children = (
+				46A7F56C1AC8FBC500B4E49C /* MazeCell.h */,
+				46A7F56D1AC8FBC500B4E49C /* MazeCell.m */,
+				46A7F56E1AC8FBC500B4E49C /* MazeModel.h */,
+				46A7F56F1AC8FBC500B4E49C /* MazeModel.m */,
 				4680A17C1AC775DF0084DD06 /* StickMan.h */,
 				4680A17D1AC775DF0084DD06 /* StickMan.m */,
 				46393B751AB5F504005585CF /* PauseMenuViewController.h */,
@@ -305,11 +315,13 @@
 			files = (
 				469F97011AC74E8300DD6D11 /* GameViewController.m in Sources */,
 				469F97041AC74F4C00DD6D11 /* RecordsViewController.m in Sources */,
+				46A7F5701AC8FBC500B4E49C /* MazeCell.m in Sources */,
 				4680A17E1AC775DF0084DD06 /* StickMan.m in Sources */,
 				4636721D1AA3EDB1000E5391 /* AppDelegate.m in Sources */,
 				46393B781AB5F504005585CF /* PauseMenuViewController.m in Sources */,
 				46393B7B1AB60C95005585CF /* HomeViewController.m in Sources */,
 				4636721A1AA3EDB1000E5391 /* main.m in Sources */,
+				46A7F5711AC8FBC500B4E49C /* MazeModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
