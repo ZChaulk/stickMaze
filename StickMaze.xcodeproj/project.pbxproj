@@ -21,6 +21,19 @@
 		468DADCD1ABC666000869231 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468DADCC1ABC666000869231 /* Main.storyboard */; };
 		469F97011AC74E8300DD6D11 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F97001AC74E8300DD6D11 /* GameViewController.m */; };
 		469F97041AC74F4C00DD6D11 /* RecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F97031AC74F4C00DD6D11 /* RecordsViewController.m */; };
+		46A7F5531AC8DC1100B4E49C /* standing.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5521AC8DC1100B4E49C /* standing.png */; };
+		46A7F5571AC8F1A700B4E49C /* falling1.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5541AC8F1A700B4E49C /* falling1.png */; };
+		46A7F5581AC8F1A700B4E49C /* falling2.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5551AC8F1A700B4E49C /* falling2.png */; };
+		46A7F5591AC8F1A700B4E49C /* falling3.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5561AC8F1A700B4E49C /* falling3.png */; };
+		46A7F55D1AC8F22C00B4E49C /* gettingUp1.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F55A1AC8F22C00B4E49C /* gettingUp1.png */; };
+		46A7F55E1AC8F22C00B4E49C /* gettingUp2.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F55B1AC8F22C00B4E49C /* gettingUp2.png */; };
+		46A7F55F1AC8F22C00B4E49C /* gettingUp3.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F55C1AC8F22C00B4E49C /* gettingUp3.png */; };
+		46A7F5661AC8F29800B4E49C /* runningLeft1.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5601AC8F29800B4E49C /* runningLeft1.png */; };
+		46A7F5671AC8F29800B4E49C /* runningLeft2.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5611AC8F29800B4E49C /* runningLeft2.png */; };
+		46A7F5681AC8F29800B4E49C /* runningLeft3.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5621AC8F29800B4E49C /* runningLeft3.png */; };
+		46A7F5691AC8F29800B4E49C /* runningRight1.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5631AC8F29800B4E49C /* runningRight1.png */; };
+		46A7F56A1AC8F29800B4E49C /* runningRight2.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5641AC8F29800B4E49C /* runningRight2.png */; };
+		46A7F56B1AC8F29800B4E49C /* runningRight3.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5651AC8F29800B4E49C /* runningRight3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +71,19 @@
 		469F97001AC74E8300DD6D11 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/GameViewController.m; sourceTree = "<group>"; };
 		469F97021AC74F4C00DD6D11 /* RecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordsViewController.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/RecordsViewController.h; sourceTree = "<group>"; };
 		469F97031AC74F4C00DD6D11 /* RecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordsViewController.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/RecordsViewController.m; sourceTree = "<group>"; };
+		46A7F5521AC8DC1100B4E49C /* standing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = standing.png; sourceTree = "<group>"; };
+		46A7F5541AC8F1A700B4E49C /* falling1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling1.png; sourceTree = "<group>"; };
+		46A7F5551AC8F1A700B4E49C /* falling2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling2.png; sourceTree = "<group>"; };
+		46A7F5561AC8F1A700B4E49C /* falling3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling3.png; sourceTree = "<group>"; };
+		46A7F55A1AC8F22C00B4E49C /* gettingUp1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gettingUp1.png; sourceTree = "<group>"; };
+		46A7F55B1AC8F22C00B4E49C /* gettingUp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gettingUp2.png; sourceTree = "<group>"; };
+		46A7F55C1AC8F22C00B4E49C /* gettingUp3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gettingUp3.png; sourceTree = "<group>"; };
+		46A7F5601AC8F29800B4E49C /* runningLeft1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningLeft1.png; sourceTree = "<group>"; };
+		46A7F5611AC8F29800B4E49C /* runningLeft2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningLeft2.png; sourceTree = "<group>"; };
+		46A7F5621AC8F29800B4E49C /* runningLeft3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningLeft3.png; sourceTree = "<group>"; };
+		46A7F5631AC8F29800B4E49C /* runningRight1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningRight1.png; sourceTree = "<group>"; };
+		46A7F5641AC8F29800B4E49C /* runningRight2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningRight2.png; sourceTree = "<group>"; };
+		46A7F5651AC8F29800B4E49C /* runningRight3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningRight3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +134,8 @@
 				469F97031AC74F4C00DD6D11 /* RecordsViewController.m */,
 				469F96FF1AC74E8300DD6D11 /* GameViewController.h */,
 				469F97001AC74E8300DD6D11 /* GameViewController.m */,
-				46393B7D1AB612AE005585CF /* GameViewController.xib */,
 				46393B7F1AB612E2005585CF /* RecordsViewController.xib */,
+				46393B7D1AB612AE005585CF /* GameViewController.xib */,
 				4636721B1AA3EDB1000E5391 /* AppDelegate.h */,
 				4636721C1AA3EDB1000E5391 /* AppDelegate.m */,
 				468DADCC1ABC666000869231 /* Main.storyboard */,
@@ -125,6 +151,19 @@
 		463672171AA3EDB1000E5391 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				46A7F5601AC8F29800B4E49C /* runningLeft1.png */,
+				46A7F5611AC8F29800B4E49C /* runningLeft2.png */,
+				46A7F5621AC8F29800B4E49C /* runningLeft3.png */,
+				46A7F5631AC8F29800B4E49C /* runningRight1.png */,
+				46A7F5641AC8F29800B4E49C /* runningRight2.png */,
+				46A7F5651AC8F29800B4E49C /* runningRight3.png */,
+				46A7F55A1AC8F22C00B4E49C /* gettingUp1.png */,
+				46A7F55B1AC8F22C00B4E49C /* gettingUp2.png */,
+				46A7F55C1AC8F22C00B4E49C /* gettingUp3.png */,
+				46A7F5541AC8F1A700B4E49C /* falling1.png */,
+				46A7F5551AC8F1A700B4E49C /* falling2.png */,
+				46A7F5561AC8F1A700B4E49C /* falling3.png */,
+				46A7F5521AC8DC1100B4E49C /* standing.png */,
 				463672181AA3EDB1000E5391 /* Info.plist */,
 				463672191AA3EDB1000E5391 /* main.m */,
 			);
@@ -228,11 +267,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46A7F5661AC8F29800B4E49C /* runningLeft1.png in Resources */,
+				46A7F55F1AC8F22C00B4E49C /* gettingUp3.png in Resources */,
+				46A7F5681AC8F29800B4E49C /* runningLeft3.png in Resources */,
+				46A7F5691AC8F29800B4E49C /* runningRight1.png in Resources */,
+				46A7F55D1AC8F22C00B4E49C /* gettingUp1.png in Resources */,
 				468DADCD1ABC666000869231 /* Main.storyboard in Resources */,
+				46A7F55E1AC8F22C00B4E49C /* gettingUp2.png in Resources */,
+				46A7F56B1AC8F29800B4E49C /* runningRight3.png in Resources */,
 				463672281AA3EDB1000E5391 /* LaunchScreen.xib in Resources */,
 				46393B791AB5F504005585CF /* PauseMenuViewController.xib in Resources */,
 				46393B801AB612E2005585CF /* RecordsViewController.xib in Resources */,
+				46A7F5671AC8F29800B4E49C /* runningLeft2.png in Resources */,
 				463672251AA3EDB1000E5391 /* Images.xcassets in Resources */,
+				46A7F5571AC8F1A700B4E49C /* falling1.png in Resources */,
+				46A7F5581AC8F1A700B4E49C /* falling2.png in Resources */,
+				46A7F5591AC8F1A700B4E49C /* falling3.png in Resources */,
+				46A7F56A1AC8F29800B4E49C /* runningRight2.png in Resources */,
+				46A7F5531AC8DC1100B4E49C /* standing.png in Resources */,
 				46393B7E1AB612AE005585CF /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

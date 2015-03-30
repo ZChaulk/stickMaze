@@ -36,7 +36,7 @@ typedef enum{
 
 - (void)setupGL;
 - (void)tearDownGL;
-- (void)setupOrthographicView;
+- (void)setupOrthographicView: (CGSize)size;
 @property (strong, nonatomic) EAGLContext *context;
 
 @end

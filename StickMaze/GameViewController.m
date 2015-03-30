@@ -18,9 +18,6 @@
     if (!self.context) {
         NSLog(@"Failed to create ES context");
     }
-    
-    player = [[StickMan alloc] init];
-    
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
@@ -87,14 +84,13 @@
         adjustedGravity -= 270;
     }
     
-    NSLog(@"%f", adjustedGravity);
-    
     if(fabs(adjustedGravity) < 10)
         player.state = STANDING;
     else if(adjustedGravity > 0 && adjustedGravity < 60)
         player.state = RUNNING_RIGHT;
-    else if(adjustedGravity < 0 && adjustedGravity > -60)
+    else if(adjustedGravity >300 && adjustedGravity < 350)
         player.state = RUNNING_LEFT;
+    
 }
 
 //openGL Section***********
@@ -102,12 +98,12 @@
 - (void)setupGL
 {
     [EAGLContext setCurrentContext:self.context];
-    
+    player = [[StickMan alloc] init];
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 }
 - (void)update
 {
-    [self setupOrthographicView];
+    [self setupOrthographicView: self.view.bounds.size];
 }
 
 - (void)tearDownGL
@@ -115,44 +111,27 @@
     [EAGLContext setCurrentContext:self.context];
 }
 
-- (void)setupOrthographicView
+- (void)setupOrthographicView: (CGSize)size
 {
-    // get iPhone display size & aspect ratio
-    CGSize size = self.view.bounds.size;
-    // set viewport based on display size
     glViewport(0, 0, size.width, size.height);
-    
-    GLfloat min = MIN(size.width, size.height);
-    GLfloat width = 2.0*size.width/min;
-    GLfloat height = 2.0*size.height/min;
+    float min = MIN(size.width, size.height);
+    float width = 2 * size.width / min;
+    float height = 2 * size.height / min;
     
     // set up orthographic projection
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrthof(-width, width, -height, height, -1, 1);
+    glOrthof(-width, width, -height, height, -2, 2);
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     // clear the rendering buffer
+    glClearColor(1, 0, 0, 1);
+    // clear the rendering buffer
     glClear(GL_COLOR_BUFFER_BIT);
     // enable the vertex array rendering
     glEnableClientState(GL_VERTEX_ARRAY);
-    
-    
-    GLfloat linePoints[] = {
-        -5, -1, 5, -1
-    };
-    
-    glVertexPointer(2, GL_FLOAT, 0, linePoints);
-    glDrawArrays(GL_LINES, 0, 2);
-    glEnableClientState(GL_COLOR_ARRAY);
-    if(gBase == LEFT)
-        glRotatef(-90, 0, 0, 1);
-    else if(gBase == INVERTED)
-        glRotatef(180, 0, 0, 1);
-    else if(gBase == RIGHT)
-        glRotatef(90, 0, 0, 1);
     [player drawOpenGLES1];
 }
 
