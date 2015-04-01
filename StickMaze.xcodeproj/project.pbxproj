@@ -36,6 +36,7 @@
 		46A7F56B1AC8F29800B4E49C /* runningRight3.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A7F5651AC8F29800B4E49C /* runningRight3.png */; };
 		46A7F5701AC8FBC500B4E49C /* MazeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A7F56D1AC8FBC500B4E49C /* MazeCell.m */; };
 		46A7F5711AC8FBC500B4E49C /* MazeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A7F56F1AC8FBC500B4E49C /* MazeModel.m */; };
+		46C9DD881ACC811300C2B7DE /* stickMazeIcon.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 46C9DD871ACC811300C2B7DE /* stickMazeIcon.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		46A7F56D1AC8FBC500B4E49C /* MazeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MazeCell.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeCell.m; sourceTree = "<group>"; };
 		46A7F56E1AC8FBC500B4E49C /* MazeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MazeModel.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.h; sourceTree = "<group>"; };
 		46A7F56F1AC8FBC500B4E49C /* MazeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MazeModel.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m; sourceTree = "<group>"; };
+		46C9DD871ACC811300C2B7DE /* stickMazeIcon.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickMazeIcon.PNG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		463672171AA3EDB1000E5391 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				46C9DD871ACC811300C2B7DE /* stickMazeIcon.PNG */,
 				46A7F5601AC8F29800B4E49C /* runningLeft1.png */,
 				46A7F5611AC8F29800B4E49C /* runningLeft2.png */,
 				46A7F5621AC8F29800B4E49C /* runningLeft3.png */,
@@ -278,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46C9DD881ACC811300C2B7DE /* stickMazeIcon.PNG in Resources */,
 				46A7F5661AC8F29800B4E49C /* runningLeft1.png in Resources */,
 				46A7F55F1AC8F22C00B4E49C /* gettingUp3.png in Resources */,
 				46A7F5681AC8F29800B4E49C /* runningLeft3.png in Resources */,

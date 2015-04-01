@@ -12,8 +12,10 @@
 #import "MazeCell.h"
 #import <CoreGraphics/CoreGraphics.h>
 @implementation MazeModel
-
-@synthesize len;
+@synthesize _playerXPos;
+@synthesize _playerYPos;
+@synthesize _playerScale;
+@synthesize len, goalX, goalY;
 @synthesize mazeCells;
 
 - (MazeModel*) initWithSize:(int) sizeIn {
@@ -31,8 +33,8 @@
             [self.mazeCells insertObject:col atIndex:i];
         }
         //randomly choose a goal position
-        int goalX = arc4random() % self.len;
-        int goalY = arc4random() % self.len;
+        self.goalX = (arc4random() % (self.len-1))+1;
+        self.goalY = (arc4random() % (self.len-1))+1;
         //initialize the maze
         [self mazeSetup:goalX yPosition:goalY];
         //randomly put in the spikes
@@ -130,13 +132,12 @@
     }
 }
 
-- (void) drawOpenGLES1{
+- (void) drawOpenGLES1:(BOOL)zoomedOut{
     
-    glTranslatef(-_playerXPos*_playerScale, -_playerYPos*_playerScale, 0);
+    
     
     MazeCell *cellToDraw;
     int linesToDraw = 0;
-    
     GLfloat linesArr[] = { //the array of all potential lines
         0., 0., 0., 0.,
         0., 0., 0., 0.,
@@ -144,7 +145,19 @@
         0., 0., 0., 0.
     };
     glColor4f(0, 0, 0, 1);
-    glLineWidth(20.);
+    
+    if(zoomedOut){
+        glScalef(1./self.len, 1./self.len, 1./self.len);
+        glTranslatef(-self.len*_playerScale/2, -self.len*_playerScale/2, 0);
+        
+        glLineWidth(10.);
+        
+    }
+    else{
+        glLineWidth(20.);
+        glTranslatef(-_playerXPos*_playerScale, -_playerYPos*_playerScale, 0);
+        
+    }
     glDisable(GL_BLEND);
     glEnable(GL_LINE_SMOOTH);
     //translate and rotate as required
@@ -203,7 +216,23 @@
                 linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*(j+1));
                 linesToDraw++;
             }
-                //now we will draw this cell
+            //consider drawing a background
+            if(i == self.goalX && j == self.goalY) {
+                glColor4f(0., 1., 0., 1.); //draw a green background for the goal
+                GLfloat goalBg[] = {
+                    //triangle one
+                    (_playerScale*i), (_playerScale*j),
+                    (_playerScale*(i+1)), (_playerScale*j),
+                    (_playerScale*i), (_playerScale*(j+1)),
+                    //triangle two
+                    (_playerScale*(i+1)), (_playerScale*(j+1))
+                };
+                glVertexPointer(2, GL_FLOAT, 0, goalBg);
+                glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+                glColor4f(0., 0., 0., 1.); //back in black
+            }
+
+            //now we will draw this cell
             glVertexPointer(2, GL_FLOAT, 0, linesArr);
            // glColorPointer(4, GL_UNSIGNED_BYTE, 0, lineColor);
             glDrawArrays(GL_LINES, 0, (2*linesToDraw));
@@ -306,6 +335,22 @@
     }
 
     return true;
+}
+
+
+- (BOOL) hitsSpikes:(int)orientation {
+    
+    return false;
+}
+
+- (BOOL) hitsGoal {
+    if( ( floor( _playerXPos ) == self.goalX ) && ( floor( _playerYPos ) == self.goalY) ) {
+        NSLog(@"GOAL REACHED");
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 

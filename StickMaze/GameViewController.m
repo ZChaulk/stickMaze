@@ -24,7 +24,7 @@
     [self setUpMotion];
     [self setupGL];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
-    
+    zoomedOut = NO;
 }
 //motion section****************
 
@@ -101,9 +101,62 @@
         else if(adjustedGravity >300 && adjustedGravity < 350)
         player.state = RUNNING_LEFT;
     }
-    //NSLog(@"%f", gravity);
 }
 
+- (void) updateMaze{
+    int orientation = 0;
+    if(gBase == LEFT)
+        orientation = 3;
+    else if(gBase == RIGHT)
+        orientation = 1;
+    else if(gBase == INVERTED)
+        orientation = 2;
+    GLfloat deltaX = 0;
+    GLfloat deltaY = 0;
+    
+    if(![mazeModel hitsFloor:orientation]){
+        if(orientation == 0)
+            deltaY = -0.2;
+        else if(orientation == 1) //Right
+            deltaX = 0.2;
+        else if (orientation == 2) //Inverted
+            deltaY = 0.2;
+        else//Left
+            deltaX = -0.2;
+        player.state = FALLING;
+    }
+    else if(player.state == FALLING){
+        player.state = RECOVERING;
+    }
+    else if(player.state == RUNNING_RIGHT){
+        if(orientation == 0) // normal
+            deltaX = 0.1;
+        else if(orientation == 1) //Right
+            deltaY = 0.1;
+        else if (orientation == 2) //Inverted
+            deltaX = -0.1;
+        else //Left
+            deltaY = -0.1;
+    }
+    else if(player.state == RUNNING_LEFT){
+        if(orientation == 0) // normal
+            deltaX = -0.1;
+        else if(orientation == 1) //Right
+            deltaY = -0.1;
+        else if (orientation == 2) //Inverted
+            deltaX = 0.1;
+        else //Left
+            deltaY = 0.1;
+    }
+    
+    [mazeModel moveStick:deltaX y:deltaY orientation:orientation];
+    if([mazeModel hitsGoal]) {
+        //add a victory animation
+        int oldLen = mazeModel.len;
+        oldLen = (oldLen < 25)? (oldLen++) : oldLen;
+        mazeModel = [[MazeModel alloc] initWithSize:5];
+    }
+}
 //openGL Section***********
 
 - (void)setupGL
@@ -143,57 +196,21 @@
     // enable the vertex array rendering
     glEnableClientState(GL_VERTEX_ARRAY);
     
+   
+    
     glPushMatrix();{
-        int orientation = 0;
-        if(gBase == LEFT)
-            orientation = 3;
-        else if(gBase == RIGHT)
-            orientation = 1;
-        else if(gBase == INVERTED)
-            orientation = 2;
-        GLfloat deltaX = 0;
-        GLfloat deltaY = 0;
-        
-        if(![mazeModel hitsFloor:orientation]){
-            if(orientation == 0)
-                deltaY = -0.2;
-            else if(orientation == 1) //Right
-                deltaX = 0.2;
-            else if (orientation == 2) //Inverted
-                deltaY = 0.2;
-            else//Left
-                deltaX = -0.2;
-            player.state = FALLING;
-        }
-        else if(player.state == FALLING){
-            player.state = RECOVERING;
-        }
-        else if(player.state == RUNNING_RIGHT){
-            if(orientation == 0) // normal
-                deltaX = 0.1;
-            else if(orientation == 1) //Right
-                deltaY = 0.1;
-            else if (orientation == 2) //Inverted
-                deltaX = -0.1;
-            else //Left
-                deltaY = -0.1;
-        }
-        else if(player.state == RUNNING_LEFT){
-            if(orientation == 0) // normal
-                deltaX = -0.1;
-            else if(orientation == 1) //Right
-                deltaY = -0.1;
-            else if (orientation == 2) //Inverted
-                deltaX = 0.1;
-            else //Left
-                deltaY = 0.1;
-        }
-        
-        [mazeModel moveStick:deltaX y:deltaY orientation:orientation];
-        [mazeModel drawOpenGLES1];
+        if(!zoomedOut)
+            [self updateMaze];
+        [mazeModel drawOpenGLES1:zoomedOut];
     }glPopMatrix();
     
     glPushMatrix();{
+        if(zoomedOut){
+            
+            glScalef(1./mazeModel.len, 1./mazeModel.len, 1./mazeModel.len);
+            glTranslatef(mazeModel._playerXPos*mazeModel._playerScale, mazeModel._playerYPos*mazeModel._playerScale, 0);
+            glTranslatef(-mazeModel.len*mazeModel._playerScale/2, -mazeModel.len*mazeModel._playerScale/2, 0);
+        }
         if(gBase == LEFT){
             
             glRotatef(-90, 0, 0, 1);
@@ -206,9 +223,14 @@
             glRotatef(180, 0, 0, 1);
         }
     
-        [player drawOpenGLES1];
+        [player drawOpenGLES1:zoomedOut];
     }glPopMatrix();
 }
+
+- (IBAction)displayGestureForTapRecognizer:(UITapGestureRecognizer *)recognizer{
+    zoomedOut = !zoomedOut;
+}
+
 
 
 - (void)didReceiveMemoryWarning {

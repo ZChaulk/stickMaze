@@ -36,13 +36,11 @@
     }
     return self;
 }
-- (void)dealloc
-{
+- (void)dealloc{
     glDeleteTextures(1, &_standingID);
 }
 
-- (void)loadTexture:(NSString *)file textureID:(GLuint) texID
-{
+- (void)loadTexture:(NSString *)file textureID:(GLuint) texID{
     CGImageRef texImage = [UIImage imageNamed:file].CGImage;
     if ( ! texImage ) {
         NSLog(@"Texture file not found!");
@@ -67,8 +65,7 @@
     
 }
 
-- (void)bind
-{
+- (void)bind{
     glEnable(GL_TEXTURE_2D);
     
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -115,8 +112,7 @@
       
 };
 
-- (void)drawOpenGLES1
-{
+- (void)drawOpenGLES1:(BOOL)zoomedOut{
     const GLfloat square[] = {
         // pos  tex
         -0.5,1,   0,0,
@@ -137,7 +133,10 @@
     glVertexPointer(2, GL_FLOAT, 16, square);
     glTexCoordPointer(2, GL_FLOAT, 16, &square[2]);
     
-    [self bind];
+    if(zoomedOut)
+        glBindTexture(GL_TEXTURE_2D, _standingID);
+    else
+        [self bind];
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     
     

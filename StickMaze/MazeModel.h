@@ -18,14 +18,19 @@
     int _playerXOffset, _playerYOffset;
     GLfloat _playerXPos, _playerYPos;
 }
+@property (nonatomic) int len, goalX, goalY;
 
-@property (nonatomic) int len;
+@property (nonatomic) GLfloat _playerXPos;
+@property (nonatomic) GLfloat _playerYPos;
+@property (nonatomic) int _playerScale;
 @property (nonatomic) NSMutableArray *mazeCells;
 
 - (MazeModel*) initWithSize:(int) sizeIn;
-- (void) drawOpenGLES1;
+- (void) drawOpenGLES1:(BOOL)zoomedOut;
 - (void) moveStick:(GLfloat)deltaX y:(GLfloat)deltaY orientation:(int)orientation;
 - (BOOL) hitsFloor:(int)orientation;
+- (BOOL) hitsSpikes:(int)orientation;
+- (BOOL) hitsGoal;
 @end
 
 #endif

@@ -108,7 +108,7 @@
     glPushMatrix();
     {
         glTranslatef(xPos, 0, 0);
-        [_homeStick drawOpenGLES1];
+        [_homeStick drawOpenGLES1:NO];
     }
     glPopMatrix();
 }

@@ -32,6 +32,6 @@ typedef enum{
 - (void) dealloc;
 - (void)loadTexture:(NSString *)file textureID:(GLuint) texID;
 - (StickMan*) init;
-- (void)drawOpenGLES1;
+- (void)drawOpenGLES1:(BOOL)zoomedOut;
 - (void)bind;
 @end

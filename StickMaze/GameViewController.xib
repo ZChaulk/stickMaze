@@ -41,6 +41,10 @@
             </connections>
             <point key="canvasLocation" x="2051.5" y="316.5"/>
         </glkView>
-        <tapGestureRecognizer numberOfTapsRequired="2" id="Gmw-QU-xPH"/>
+        <tapGestureRecognizer numberOfTapsRequired="2" id="Gmw-QU-xPH">
+            <connections>
+                <action selector="displayGestureForTapRecognizer:" destination="-1" id="xas-6X-pe3"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

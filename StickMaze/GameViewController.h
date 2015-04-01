@@ -32,6 +32,7 @@ typedef enum{
     MazeModel *mazeModel;
     gravityBase gBase;
     int startUpAcceleratorVal;
+    BOOL zoomedOut;
 }
 @property id<GameViewControllerDelegate> gvDelegate;
 
