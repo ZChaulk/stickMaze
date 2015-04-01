@@ -15,7 +15,6 @@
     if(self){
         self.state = STANDING;
         runLeftTic = runRightTic = standUpTic = fallingTic = 0;
-        self.xPos = self.yPos = 0;
         glGenTextures(1, &_standingID);
         glGenTextures(3, _runLeftID);
         glGenTextures(3, _runRightID);
@@ -102,9 +101,9 @@
         runLeftTic = runRightTic = standUpTic = 0;
     }
     else if(self.state == RECOVERING){
-         glBindTexture(GL_TEXTURE_2D, _recoveringID[standUpTic/2]);
+         glBindTexture(GL_TEXTURE_2D, _recoveringID[standUpTic/3]);
         standUpTic++;
-        if(standUpTic/2 > 2){
+        if(standUpTic/3 > 2){
             standUpTic =  0;
             self.state = STANDING;
         }
@@ -125,7 +124,8 @@
         -0.5,-1,   0,1,
         0.5,-1,  1,1
     };
-
+    glColor4f(1, 1, 1, 1);
+    glDisableClientState(GL_COLOR_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glEnable(GL_TEXTURE_2D);
     glEnable(GL_BLEND);
@@ -140,7 +140,7 @@
     [self bind];
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     
-    glDisableClientState(GL_COLOR_ARRAY);
+    
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     glDisable(GL_TEXTURE_2D);
 }

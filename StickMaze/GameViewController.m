@@ -23,6 +23,7 @@
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     [self setUpMotion];
     [self setupGL];
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
     
 }
 //motion section****************
@@ -45,6 +46,8 @@
     [motionMan startAccelerometerUpdates];
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(pollMotion:) userInfo:nil repeats:YES];
     
+    startUpAcceleratorVal = 0;
+    
 }
 
 -(void) pollMotion:(NSTimer *)timer{
@@ -56,7 +59,11 @@
     gravity = atan2f(_avgAccY, _avgAccX)*180/3.14 + 90;
     if(gravity < 0)
         gravity += 360;
-    [self updateForces];
+    //inital value of 0 causes game to start on right angle.  small counter to wait for accelerometer to adjust.
+    if(startUpAcceleratorVal > 5)
+        [self updateForces];
+    else
+        startUpAcceleratorVal++;
 }
 
 -(void) updateForces{
@@ -86,12 +93,14 @@
     if(adjustedGravity < 0)
         adjustedGravity += 360;
     
-    if(fabs(adjustedGravity) < 10)
-        player.state = STANDING;
-    else if(adjustedGravity > 0 && adjustedGravity < 60)
-        player.state = RUNNING_RIGHT;
-    else if(adjustedGravity >300 && adjustedGravity < 350)
+    if(player.state != FALLING && player.state != RECOVERING){
+        if(fabs(adjustedGravity) < 10)
+            player.state = STANDING;
+        else if(adjustedGravity > 0 && adjustedGravity < 60)
+            player.state = RUNNING_RIGHT;
+        else if(adjustedGravity >300 && adjustedGravity < 350)
         player.state = RUNNING_LEFT;
+    }
     //NSLog(@"%f", gravity);
 }
 
@@ -130,8 +139,6 @@
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     // clear the rendering buffer
-    glClearColor(1, 0, 0, 1);
-    // clear the rendering buffer
     glClear(GL_COLOR_BUFFER_BIT);
     // enable the vertex array rendering
     glEnableClientState(GL_VERTEX_ARRAY);
@@ -144,33 +151,45 @@
             orientation = 1;
         else if(gBase == INVERTED)
             orientation = 2;
+        GLfloat deltaX = 0;
+        GLfloat deltaY = 0;
         
-        
-        if(player.state == RUNNING_RIGHT){
-            if(![mazeModel hitsWallRight:player.xPos yPos:player.yPos orientation:orientation]){
-                if(orientation == 0) // normal
-                    player.xPos += 0.1;
-                else if(orientation == 1) //Right
-                    player.yPos += 0.1;
-                else if (orientation == 2) //Inverted
-                    player.xPos -= 0.1;
-                else //Left
-                    player.yPos -= 0.1;
-                    
-            }
-            
+        if(![mazeModel hitsFloor:orientation]){
+            if(orientation == 0)
+                deltaY = -0.2;
+            else if(orientation == 1) //Right
+                deltaX = 0.2;
+            else if (orientation == 2) //Inverted
+                deltaY = 0.2;
+            else//Left
+                deltaX = -0.2;
+            player.state = FALLING;
+        }
+        else if(player.state == FALLING){
+            player.state = RECOVERING;
+        }
+        else if(player.state == RUNNING_RIGHT){
+            if(orientation == 0) // normal
+                deltaX = 0.1;
+            else if(orientation == 1) //Right
+                deltaY = 0.1;
+            else if (orientation == 2) //Inverted
+                deltaX = -0.1;
+            else //Left
+                deltaY = -0.1;
         }
         else if(player.state == RUNNING_LEFT){
-            if(![mazeModel hitsWallLeft:player.xPos yPos:player.yPos orientation:orientation]){
-                if(orientation == 0){
-                    player.xPos -= 0.1;
-                    if(player.xPos < 0)
-                        player.xPos = 0;
-                }
-            }
+            if(orientation == 0) // normal
+                deltaX = -0.1;
+            else if(orientation == 1) //Right
+                deltaY = -0.1;
+            else if (orientation == 2) //Inverted
+                deltaX = 0.1;
+            else //Left
+                deltaY = 0.1;
         }
-        //NSLog(@"%f, %f", player.xPos, player.yPos);
-        glTranslatef(-player.xPos, -player.yPos, 0);
+        
+        [mazeModel moveStick:deltaX y:deltaY orientation:orientation];
         [mazeModel drawOpenGLES1];
     }glPopMatrix();
     
@@ -200,15 +219,21 @@
     //show pauseMenu
     PauseMenuViewController *pmvc = [[PauseMenuViewController alloc] initWithNibName:@"PauseMenuViewController" bundle:nil];
     pmvc.delegate = self;
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
+    [motionMan stopAccelerometerUpdates];
+    [motionMan stopGyroUpdates];
     [self presentViewController:pmvc animated:YES completion:nil];
 }
 
 -(void)resumeGame:(PauseMenuViewController *)pauseMenuViewController{
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
     [self dismissViewControllerAnimated:YES completion:nil];
-    
+    [motionMan startAccelerometerUpdates];
+    [motionMan startGyroUpdates];
 }
 
 -(void)endGame:(PauseMenuViewController *)pauseMenuViewController{
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.gvDelegate notifyGameDone];
     

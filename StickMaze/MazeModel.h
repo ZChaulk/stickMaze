@@ -16,6 +16,7 @@
     int _startX, _startY, _exitX, _exitY;
     int _playerScale;
     int _playerXOffset, _playerYOffset;
+    GLfloat _playerXPos, _playerYPos;
 }
 
 @property (nonatomic) int len;
@@ -23,10 +24,8 @@
 
 - (MazeModel*) initWithSize:(int) sizeIn;
 - (void) drawOpenGLES1;
-- (BOOL) hitsWallRight:(GLfloat) xPos yPos:(GLfloat) yPos orientation: (int)orientation;
-- (BOOL) hitsWallLeft:(GLfloat) xPos yPos:(GLfloat) yPos orientation: (int)orientation;
-- (BOOL) hitsWallTop:(GLfloat) xPos yPos:(GLfloat) yPos orientation: (int)orientation;
-- (BOOL) hitsWallBottom:(GLfloat) xPos yPos:(GLfloat) yPos orientation: (int)orientation;
+- (void) moveStick:(GLfloat)deltaX y:(GLfloat)deltaY orientation:(int)orientation;
+- (BOOL) hitsFloor:(int)orientation;
 @end
 
 #endif

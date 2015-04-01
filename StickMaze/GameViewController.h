@@ -31,6 +31,7 @@ typedef enum{
     StickMan *player;
     MazeModel *mazeModel;
     gravityBase gBase;
+    int startUpAcceleratorVal;
 }
 @property id<GameViewControllerDelegate> gvDelegate;
 

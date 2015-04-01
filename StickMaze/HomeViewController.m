@@ -20,12 +20,16 @@
         NSLog(@"Failed to create ES context");
     }
     
+    xPos = 0.0;
+    yPos = -3.0;
+    starting = NO;
+    
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     
     [self setupGL];
-
+    
 }
 - (void)update
 {
@@ -37,6 +41,9 @@
     [EAGLContext setCurrentContext:self.context];
     
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    
+    _homeStick = [[StickMan alloc] init];
+    _homeStick.state = FALLING;
 }
 
 - (void)tearDownGL
@@ -58,40 +65,53 @@
     // set up orthographic projection
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrthof(-width, width, -height, height, -1, 1);
+    glOrthof(-width, width, -height, height, -2, 2);
 }
 
 #pragma mark - GLKView and GLKViewController delegate methods
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
+    glClearColor(1., 1., 1., 1.);
     // clear the rendering buffer
     glClear(GL_COLOR_BUFFER_BIT);
     // enable the vertex array rendering
     glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_COLOR_ARRAY);
     
-    const GLubyte colors[] = {
-        0, 0, 0, 255
+    if(starting){
+        if(yPos < -0.5)
+            yPos += 0.1;
+        else if(_homeStick.state == FALLING)
+            _homeStick.state = RECOVERING;
+        else if(_homeStick.state == STANDING)
+            _homeStick.state = RUNNING_RIGHT;
+        else if(_homeStick.state == RUNNING_RIGHT && xPos < 3)
+            xPos += 0.1;
+        else if(xPos >= 3)
+            [self openGame];
+    }
+    glPushMatrix();
+    {
+        glTranslatef(0, yPos, 0);
         
-    };
-    const GLfloat linePoints[] = {
-        0, -0.5, -0.25, -1, //leg1
-        0, -0.5, 0.25, -1, //leg2
-        0, -0.5, 0, 0.2, //body
-        0, 0.18, -0.2, -0.3, //arm1
-        0, 0.18, 0.2, -0.3 //arm2 (down)
-    };
-    
-    
-    glColorPointer(4, GL_UNSIGNED_BYTE, 0, colors);
-    glVertexPointer(2, GL_FLOAT, 0, linePoints);
-    glEnable(GL_LINE_SMOOTH);
-    glLineWidth(12);
-    glDrawArrays(GL_LINES, 0, 10);
-    
-//Draw HEad?
-    
+        glColor4f(0, 0, 0, 1);
+        glLineWidth(10);
+        glDisable(GL_BLEND);
+        glEnable(GL_LINE_SMOOTH);
+        GLfloat ground[] = {
+            -5.0, yPos,    5.0, yPos
+        };
+        glVertexPointer(2, GL_FLOAT, 0, ground);
+        glDrawArrays(GL_LINES, 0, 2);
+        
+    }
+    glPopMatrix();
+    glPushMatrix();
+    {
+        glTranslatef(xPos, 0, 0);
+        [_homeStick drawOpenGLES1];
+    }
+    glPopMatrix();
 }
 
 
@@ -101,10 +121,16 @@
 }
 
 - (IBAction)start:(id)sender {
-    GameViewController *gvc = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
+    gvc = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
     gvc.gvDelegate = self;
-    [self presentViewController:gvc animated:NO completion:nil];
+    starting = YES;
+    
+    
+}
 
+- (void) openGame{
+    starting = NO;
+    [self presentViewController:gvc animated:NO completion:nil];
 }
 
 - (IBAction)records:(id)sender {

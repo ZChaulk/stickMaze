@@ -29,8 +29,6 @@ typedef enum{
     int fallingTic;
 }
 @property playerState state;
-@property GLfloat xPos;
-@property GLfloat yPos;
 - (void) dealloc;
 - (void)loadTexture:(NSString *)file textureID:(GLuint) texID;
 - (StickMan*) init;

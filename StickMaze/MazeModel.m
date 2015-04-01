@@ -131,197 +131,201 @@
 }
 
 - (void) drawOpenGLES1{
+    
+    glTranslatef(-_playerXPos*_playerScale, -_playerYPos*_playerScale, 0);
+    
     MazeCell *cellToDraw;
     int linesToDraw = 0;
     
-    glPushMatrix();
-    {
-        GLfloat linesArr[] = { //the array of all potential lines
-            0., 0., 0., 0.,
-            0., 0., 0., 0.,
-            0., 0., 0., 0.,
-            0., 0., 0., 0.
-        };
-        GLubyte lineColor[] = {
-            0, 0, 0, 255
-        };
-        glLineWidth(25.);
-        
-        //translate and rotate as required
-        glTranslatef(-_playerXOffset, -_playerYOffset, 0.);
-        
-        //draw each applicable line for each cell of the maze
-        for(int i = 0; i < self.len; i++) {
-            for(int j = 0; j < self.len; j++) {
-                linesToDraw = 0; //reset the number of lines we will draw this time
-                cellToDraw = self.mazeCells[i][j]; //get the cell we will draw
-                //consider drawing a north wall
-                if(!cellToDraw.northExit) {
-                    //start point for north wall line X
-                    linesArr[(4*linesToDraw)] = (GLfloat)(_playerScale*i);
-                    //start point for north wall line Y
-                    linesArr[(4*linesToDraw)+1] = (GLfloat)(_playerScale*j);
-                    //end point for north wall line X
-                    linesArr[(4*linesToDraw)+2] = (GLfloat)(_playerScale*(i+1));
-                    //end point for north wall line Y
-                    linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*j);
-                    linesToDraw++;
-                }
-                //consider drawing a south wall
-                if(!cellToDraw.southExit) {
-                    //start point for south wall line X
-                    linesArr[(4*linesToDraw)] = (GLfloat)(_playerScale*i);
-                    //start point for south wall line Y
-                    linesArr[(4*linesToDraw)+1] = (GLfloat)(_playerScale*(j+1));
-                    //end point for south wall line X
-                    linesArr[(4*linesToDraw)+2] = (GLfloat)(_playerScale*(i+1));
-                    //end point for south wall line Y
-                    linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*(j+1));
-                    linesToDraw++;
-                }
-                //consider drawing an east wall
-                if(!cellToDraw.eastExit) {
-                    //start point for east wall line X
-                    linesArr[(4*linesToDraw)] = (GLfloat)(_playerScale*(i+1));
-                    //start point for east wall line Y
-                    linesArr[(4*linesToDraw)+1] = (GLfloat)(_playerScale*j);
-                    //end point for east wall line X
-                    linesArr[(4*linesToDraw)+2] = (GLfloat)(_playerScale*(i+1));
-                    //end point for east wall line Y
-                    linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*(j+1));
-                    linesToDraw++;
-                }
+    GLfloat linesArr[] = { //the array of all potential lines
+        0., 0., 0., 0.,
+        0., 0., 0., 0.,
+        0., 0., 0., 0.,
+        0., 0., 0., 0.
+    };
+    glColor4f(0, 0, 0, 1);
+    glLineWidth(20.);
+    glDisable(GL_BLEND);
+    glEnable(GL_LINE_SMOOTH);
+    //translate and rotate as required
+    glTranslatef(-_playerXOffset, -_playerYOffset, 0.);
+    
+    //draw each applicable line for each cell of the maze
+    for(int i = 0; i < self.len; i++) {
+        for(int j = 0; j < self.len; j++) {
+            linesToDraw = 0; //reset the number of lines we will draw this time
+            cellToDraw = self.mazeCells[i][j]; //get the cell we will draw
+            //consider drawing a north wall
+            if(!cellToDraw.northExit) {
+                //start point for north wall line X
+                linesArr[(4*linesToDraw)] = (GLfloat)(_playerScale*i);
+                //start point for north wall line Y
+                linesArr[(4*linesToDraw)+1] = (GLfloat)(_playerScale*j);
+                //end point for north wall line X
+                linesArr[(4*linesToDraw)+2] = (GLfloat)(_playerScale*(i+1));
+                //end point for north wall line Y
+                linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*j);
+                linesToDraw++;
+            }
+            //consider drawing a south wall
+            if(!cellToDraw.southExit) {
+                //start point for south wall line X
+                linesArr[(4*linesToDraw)] = (GLfloat)(_playerScale*i);
+                //start point for south wall line Y
+                linesArr[(4*linesToDraw)+1] = (GLfloat)(_playerScale*(j+1));
+                //end point for south wall line X
+                linesArr[(4*linesToDraw)+2] = (GLfloat)(_playerScale*(i+1));
+                //end point for south wall line Y
+                linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*(j+1));
+                linesToDraw++;
+            }
+            //consider drawing an east wall
+            if(!cellToDraw.eastExit) {
+                //start point for east wall line X
+                linesArr[(4*linesToDraw)] = (GLfloat)(_playerScale*(i+1));
+                //start point for east wall line Y
+                linesArr[(4*linesToDraw)+1] = (GLfloat)(_playerScale*j);
+                //end point for east wall line X
+                linesArr[(4*linesToDraw)+2] = (GLfloat)(_playerScale*(i+1));
+                //end point for east wall line Y
+                linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*(j+1));
+                linesToDraw++;
+            }
                 //consider drawing a west wall
-                if(!cellToDraw.westExit) {
-                    //start point for west wall line X
-                    linesArr[(4*linesToDraw)] = (GLfloat)(_playerScale*i);
-                    //start point for west wall line Y
-                    linesArr[(4*linesToDraw)+1] = (GLfloat)(_playerScale*j);
-                    //end point for east west line X
-                    linesArr[(4*linesToDraw)+2] = (GLfloat)(_playerScale*i);
-                    //end point for east west line Y
-                    linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*(j+1));
-                    linesToDraw++;
-                }
+            if(!cellToDraw.westExit) {
+                //start point for west wall line X
+                linesArr[(4*linesToDraw)] = (GLfloat)(_playerScale*i);
+                //start point for west wall line Y
+                linesArr[(4*linesToDraw)+1] = (GLfloat)(_playerScale*j);
+                //end point for east west line X
+                linesArr[(4*linesToDraw)+2] = (GLfloat)(_playerScale*i);
+                //end point for east west line Y
+                linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*(j+1));
+                linesToDraw++;
+            }
                 //now we will draw this cell
-                glVertexPointer(2, GL_FLOAT, 0, linesArr);
-                glColorPointer(4, GL_UNSIGNED_BYTE, 0, lineColor);
-                glDrawArrays(GL_LINES, 0, (2*linesToDraw));
-            }
+            glVertexPointer(2, GL_FLOAT, 0, linesArr);
+           // glColorPointer(4, GL_UNSIGNED_BYTE, 0, lineColor);
+            glDrawArrays(GL_LINES, 0, (2*linesToDraw));
         }
     }
-    glPopMatrix();
+    
 }
 
-- (BOOL) hitsWallRight:(GLfloat)xPos yPos:(GLfloat)yPos orientation: (int)orientation{
+
+- (void) moveStick:(GLfloat)deltaX y:(GLfloat)deltaY orientation:(int)orientation{
     
-    float playerXPos = xPos/_playerScale;
-    if(playerXPos < 0) playerXPos = 0;
-    float playerYPos = yPos/_playerScale;
-    if(playerYPos < 0) playerYPos = 0;
-    if(playerYPos >= 0 && playerYPos <= self.len && playerXPos >= 0 && playerXPos <= self.len){
-        MazeCell *cell = self.mazeCells[(int)floor(playerXPos)][(int)floor(playerYPos)];
-        
-        bool exitOfConcern;
-        if(orientation == 0) { //normal
-            exitOfConcern = cell.eastExit;
-        }
-        else if(orientation == 1) { //right
-            exitOfConcern = cell.southExit;
-        }
-        else if(orientation == 2) { //inverted
-            exitOfConcern = cell.westExit;
-        }
-        else { //left
-            exitOfConcern = cell.northExit;
-        }
-        
-        if(exitOfConcern)
-            return false;
-        
-        if(orientation == 0){
-           // NSLog(@"%f vs %f",(xPos + _playerXOffset) , (ceil(playerXPos)*_playerScale));
-            if(ceil(playerXPos) != 0)
-                return (xPos + _playerXOffset*2)  >= (ceil(playerXPos)*_playerScale);
-            else{
-                return (xPos + _playerXOffset*2)  >= _playerScale;
+    
+    GLfloat scaledDeltaX = deltaX/_playerScale;
+    GLfloat scaledDeltaY = deltaY/_playerScale;
+    GLfloat actualXOffset = 0;
+    GLfloat actualYOffset = 0;
+    //switched if on side.
+    if( orientation == 0 || orientation == 2){
+        actualXOffset = _playerXOffset;
+        actualYOffset = _playerYOffset;
+    }
+    else if (orientation == 1 || orientation == 3){
+        actualXOffset = _playerYOffset;
+        actualYOffset = _playerXOffset;
+    }
+    
+
+    MazeCell *cell = self.mazeCells[(int)floorf(_playerXPos)][(int)floorf(_playerYPos)];
+    
+    if(_playerYPos + scaledDeltaY >= 0 && _playerYPos + scaledDeltaY <= self.len){
+        if(scaledDeltaY > 0){
+            if (cell.southExit) {
+                _playerYPos += scaledDeltaY;
             }
-        }
-        else if(orientation == 1){
-            // NSLog(@"%f vs %f",(yPos + _playerXOffset*2) , (ceil(playerYPos)*_playerScale));
-            if(ceil(playerYPos) != 0)
-                return (yPos + _playerXOffset*2)  >= (ceil(playerYPos)*_playerScale);
-            else{
-                return (yPos + _playerXOffset*2)  >= _playerScale;
-            }
-        }
-        else if( orientation == 2){
+            else if(ceilf(_playerYPos) == 0 &&
+                    _playerYPos < actualYOffset)
+                _playerYPos += scaledDeltaY;
+            else if(_playerYPos < ceilf(_playerYPos) - actualYOffset/2. - 0.12)
+                _playerYPos += scaledDeltaY;
             
-            if(floor(playerXPos) != 0){
-                NSLog(@"%f vs %f",xPos , floor(playerXPos)*_playerScale);
-                return (xPos) <= (floor(playerXPos)*_playerScale);
+        }
+        else if(scaledDeltaY < 0){
+            if (cell.northExit) {
+                _playerYPos += scaledDeltaY;
             }
-            else
-                return (xPos) <= 0;
+            else if(_playerYPos > floorf(_playerYPos) + 0.08)
+                _playerYPos += scaledDeltaY;
+            
         }
-        else{
-            //NSLog(@"%f vs %f",(yPos - _playerXOffset*2) , (ceil(playerYPos)*_playerScale));
-            if(floor(playerYPos) != 0)
-                return (yPos - _playerXOffset*2)  >= (ceil(playerYPos)*_playerScale);
-            else{
-                return (yPos - _playerXOffset*2)  >= _playerScale;
+    }
+
+    if(_playerXPos + scaledDeltaX >= 0 && _playerXPos + scaledDeltaX <= self.len){
+        if(scaledDeltaX > 0){
+            if (cell.eastExit) {
+                _playerXPos += scaledDeltaX;
             }
+            else if(ceilf(_playerXPos) == 0 &&
+                    _playerXPos < actualXOffset)
+                 _playerXPos += scaledDeltaX;
+            else if(_playerXPos < ceilf(_playerXPos) - actualXOffset/2. - 0.08)
+                _playerXPos += scaledDeltaX;
+                
+        }
+        else if(scaledDeltaX < 0){
+            if (cell.westExit) {
+                _playerXPos += scaledDeltaX;
+            }
+            else if(_playerXPos > floorf(_playerXPos) + 0.05)
+                _playerXPos += scaledDeltaX;
 
         }
     }
-    return true;
 }
 
-- (BOOL) hitsWallLeft:(GLfloat)xPos yPos:(GLfloat)yPos orientation: (int)orientation{
+
+- (BOOL) hitsFloor:(int)orientation{
+    MazeCell *cell = self.mazeCells[(int)floorf(_playerXPos)][(int)floorf(_playerYPos)];
+    GLfloat actualXOffset = orientation%2 == 0 ? _playerXOffset : _playerYOffset;
+    GLfloat actualYOffset = orientation%2 == 0 ? _playerYOffset : _playerXOffset;
     
-    float playerXPos = xPos/_playerScale;
-    float playerYPos = yPos/_playerScale;
-    if(playerYPos >= 0 && playerYPos <= self.len && playerXPos >= 0 && playerXPos <= self.len){
-        MazeCell *cell = self.mazeCells[(int)floor(playerXPos)][(int)floor(playerYPos)];
-        if(cell.westExit)
-            return false;
-    
-        NSLog(@"%f vs %f",xPos, floor(playerXPos)*_playerScale);
-        return (xPos) <= (floor(playerXPos)*_playerScale);
+    if(_playerYPos >= 0 && _playerYPos <= self.len){
+//        if(scaledDeltaY > 0){
+//            if (cell.southExit) {
+//                _playerYPos += scaledDeltaY;
+//            }
+//            else if(ceilf(_playerYPos) == 0 &&
+//                    _playerYPos < actualYOffset)
+//                _playerYPos += scaledDeltaY;
+//            else if(_playerYPos < ceilf(_playerYPos) - actualYOffset/2.)
+//                _playerYPos += scaledDeltaY;
+//            
+//        }
+//        else if(scaledDeltaY < 0){
+//            if (cell.northExit) {
+//                _playerYPos += scaledDeltaY;
+//            }
+//            else if(_playerYPos > floorf(_playerYPos))
+//                _playerYPos += scaledDeltaY;
+//            
+//        }
     }
-    return true;
-}
-
-
-- (BOOL) hitsWallTop:(GLfloat)xPos yPos:(GLfloat)yPos orientation: (int)orientation{
     
-    float playerXPos = xPos/_playerScale;
-    float playerYPos = yPos/_playerScale;
-    if(playerYPos >= 0 && playerYPos <= self.len && playerXPos >= 0 && playerXPos <= self.len){
-        MazeCell *cell = self.mazeCells[(int)floor(playerXPos)][(int)floor(playerYPos)];
-        if(cell.eastExit)
-            return false;
-        NSLog(@"%f vs %f",(xPos + _playerXOffset) , (ceil(playerXPos)*_playerScale));
-        if(ceil(playerXPos) != 0)
-            return (xPos + _playerXOffset*2)  >= (ceil(playerXPos)*_playerScale);
-        else{
-            return (xPos + _playerXOffset*2)  >= _playerScale;
-        }
-    }
-    return true;
-}
-
-- (BOOL) hitsWallBottom:(GLfloat)xPos yPos:(GLfloat)yPos orientation: (int)orientation{
-    
-    float playerXPos = xPos/_playerScale;
-    float playerYPos = yPos/_playerScale;
-    if(playerYPos >= 0 && playerYPos <= self.len && playerXPos >= 0 && playerXPos <= self.len){
-        MazeCell *cell = self.mazeCells[(int)floor(playerXPos)][(int)floor(playerYPos)];
-        if(cell.westExit)
-            return false;
-        
-        NSLog(@"%f vs %f",xPos, floor(playerXPos)*_playerScale);
-        return (xPos) <= (floor(playerXPos)*_playerScale);
+    if(_playerXPos >= 0 && _playerXPos <= self.len){
+//        if(scaledDeltaX > 0){
+//            if (cell.eastExit) {
+//                _playerXPos += scaledDeltaX;
+//            }
+//            else if(ceilf(_playerXPos) == 0 &&
+//                    _playerXPos < actualXOffset)
+//                _playerXPos += scaledDeltaX;
+//            else if(_playerXPos < ceilf(_playerXPos) - actualXOffset/2. - 0.1)
+//                _playerXPos += scaledDeltaX;
+//            
+//        }
+//        else if(scaledDeltaX < 0){
+//            if (cell.westExit) {
+//                _playerXPos += scaledDeltaX;
+//            }
+//            else if(_playerXPos > floorf(_playerXPos))
+//                _playerXPos += scaledDeltaX;
+//            
+//        }
     }
     return true;
 }

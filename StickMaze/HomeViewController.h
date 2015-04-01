@@ -10,7 +10,13 @@
 
 #import "GameViewController.h"
 #import "RecordsViewController.h"
-@interface HomeViewController : GLKViewController<GameViewControllerDelegate>
+#import "StickMan.h"
+@interface HomeViewController : GLKViewController<GameViewControllerDelegate> {
+    StickMan *_homeStick;
+    BOOL starting;
+    GLfloat xPos, yPos;
+    GameViewController *gvc ;
+}
 - (void)setupGL;
 - (void)tearDownGL;
 - (void)setupOrthographicView;
