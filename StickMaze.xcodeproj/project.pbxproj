@@ -52,27 +52,27 @@
 		463672141AA3EDB1000E5391 /* StickMaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickMaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		463672181AA3EDB1000E5391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463672191AA3EDB1000E5391 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4636721B1AA3EDB1000E5391 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = StickMaze/AppDelegate.h; sourceTree = SOURCE_ROOT; };
-		4636721C1AA3EDB1000E5391 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = StickMaze/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		4636721B1AA3EDB1000E5391 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4636721C1AA3EDB1000E5391 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		463672241AA3EDB1000E5391 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		463672271AA3EDB1000E5391 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4636722D1AA3EDB1000E5391 /* StickMazeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StickMazeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		463672321AA3EDB1000E5391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463672331AA3EDB1000E5391 /* StickMazeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StickMazeTests.m; sourceTree = "<group>"; };
-		46393B751AB5F504005585CF /* PauseMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PauseMenuViewController.h; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.h; sourceTree = SOURCE_ROOT; };
-		46393B761AB5F504005585CF /* PauseMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PauseMenuViewController.m; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.m; sourceTree = SOURCE_ROOT; };
-		46393B771AB5F504005585CF /* PauseMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PauseMenuViewController.xib; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.xib; sourceTree = SOURCE_ROOT; };
-		46393B7A1AB60C95005585CF /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/HomeViewController.m; sourceTree = SOURCE_ROOT; };
-		46393B7C1AB60CC5005585CF /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = StickMaze/HomeViewController.h; sourceTree = SOURCE_ROOT; };
-		46393B7D1AB612AE005585CF /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameViewController.xib; path = StickMaze/GameViewController.xib; sourceTree = SOURCE_ROOT; };
-		46393B7F1AB612E2005585CF /* RecordsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordsViewController.xib; path = StickMaze/RecordsViewController.xib; sourceTree = SOURCE_ROOT; };
-		4680A17C1AC775DF0084DD06 /* StickMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StickMan.h; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/StickMan.h; sourceTree = SOURCE_ROOT; };
-		4680A17D1AC775DF0084DD06 /* StickMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StickMan.m; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/StickMan.m; sourceTree = SOURCE_ROOT; };
-		468DADCC1ABC666000869231 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/Main.storyboard; sourceTree = SOURCE_ROOT; };
-		469F96FF1AC74E8300DD6D11 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/GameViewController.h; sourceTree = SOURCE_ROOT; };
-		469F97001AC74E8300DD6D11 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/GameViewController.m; sourceTree = SOURCE_ROOT; };
-		469F97021AC74F4C00DD6D11 /* RecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordsViewController.h; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/RecordsViewController.h; sourceTree = SOURCE_ROOT; };
-		469F97031AC74F4C00DD6D11 /* RecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordsViewController.m; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/RecordsViewController.m; sourceTree = SOURCE_ROOT; };
+		46393B751AB5F504005585CF /* PauseMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PauseMenuViewController.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.h; sourceTree = "<group>"; };
+		46393B761AB5F504005585CF /* PauseMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PauseMenuViewController.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.m; sourceTree = "<group>"; };
+		46393B771AB5F504005585CF /* PauseMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PauseMenuViewController.xib; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/PauseMenuViewController.xib; sourceTree = "<group>"; };
+		46393B7A1AB60C95005585CF /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/HomeViewController.m; sourceTree = "<group>"; };
+		46393B7C1AB60CC5005585CF /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		46393B7D1AB612AE005585CF /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		46393B7F1AB612E2005585CF /* RecordsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordsViewController.xib; sourceTree = "<group>"; };
+		4680A17C1AC775DF0084DD06 /* StickMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StickMan.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/StickMan.h; sourceTree = "<group>"; };
+		4680A17D1AC775DF0084DD06 /* StickMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StickMan.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/StickMan.m; sourceTree = "<group>"; };
+		468DADCC1ABC666000869231 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/Main.storyboard; sourceTree = "<group>"; };
+		469F96FF1AC74E8300DD6D11 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/GameViewController.h; sourceTree = "<group>"; };
+		469F97001AC74E8300DD6D11 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/GameViewController.m; sourceTree = "<group>"; };
+		469F97021AC74F4C00DD6D11 /* RecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordsViewController.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/RecordsViewController.h; sourceTree = "<group>"; };
+		469F97031AC74F4C00DD6D11 /* RecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordsViewController.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/RecordsViewController.m; sourceTree = "<group>"; };
 		46A7F5521AC8DC1100B4E49C /* standing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = standing.png; sourceTree = "<group>"; };
 		46A7F5541AC8F1A700B4E49C /* falling1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling1.png; sourceTree = "<group>"; };
 		46A7F5551AC8F1A700B4E49C /* falling2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falling2.png; sourceTree = "<group>"; };
@@ -86,10 +86,10 @@
 		46A7F5631AC8F29800B4E49C /* runningRight1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningRight1.png; sourceTree = "<group>"; };
 		46A7F5641AC8F29800B4E49C /* runningRight2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningRight2.png; sourceTree = "<group>"; };
 		46A7F5651AC8F29800B4E49C /* runningRight3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningRight3.png; sourceTree = "<group>"; };
-		46A7F56C1AC8FBC500B4E49C /* MazeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MazeCell.h; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeCell.h; sourceTree = SOURCE_ROOT; };
-		46A7F56D1AC8FBC500B4E49C /* MazeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MazeCell.m; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeCell.m; sourceTree = SOURCE_ROOT; };
-		46A7F56E1AC8FBC500B4E49C /* MazeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MazeModel.h; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.h; sourceTree = SOURCE_ROOT; };
-		46A7F56F1AC8FBC500B4E49C /* MazeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MazeModel.m; path = ../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m; sourceTree = SOURCE_ROOT; };
+		46A7F56C1AC8FBC500B4E49C /* MazeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MazeCell.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeCell.h; sourceTree = "<group>"; };
+		46A7F56D1AC8FBC500B4E49C /* MazeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MazeCell.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeCell.m; sourceTree = "<group>"; };
+		46A7F56E1AC8FBC500B4E49C /* MazeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MazeModel.h; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.h; sourceTree = "<group>"; };
+		46A7F56F1AC8FBC500B4E49C /* MazeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MazeModel.m; path = ../../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +126,7 @@
 				4636722D1AA3EDB1000E5391 /* StickMazeTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		463672161AA3EDB1000E5391 /* StickMaze */ = {
 			isa = PBXGroup;
@@ -156,7 +156,7 @@
 				463672171AA3EDB1000E5391 /* Supporting Files */,
 			);
 			path = StickMaze;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		463672171AA3EDB1000E5391 /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -178,7 +178,8 @@
 				463672191AA3EDB1000E5391 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
+			path = StickMaze;
+			sourceTree = SOURCE_ROOT;
 		};
 		463672301AA3EDB1000E5391 /* StickMazeTests */ = {
 			isa = PBXGroup;
@@ -187,7 +188,7 @@
 				463672311AA3EDB1000E5391 /* Supporting Files */,
 			);
 			path = StickMazeTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		463672311AA3EDB1000E5391 /* Supporting Files */ = {
 			isa = PBXGroup;

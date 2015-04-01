@@ -271,7 +271,6 @@
 
 
 - (BOOL) hitsFloor:(int)orientation{
-    NSLog(@"%f to %d    ,   %f to %d", _playerXPos, (int)floorf(_playerXPos), _playerYPos, (int)floorf(_playerYPos));
     
     MazeCell *cell = self.mazeCells[(int)floorf(_playerXPos)][(int)floorf(_playerYPos)];
     GLfloat actualXOffset = orientation%2 == 0 ? _playerXOffset : _playerYOffset;

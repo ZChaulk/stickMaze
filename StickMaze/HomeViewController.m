@@ -21,12 +21,13 @@
     }
     
    
-    [self resetAnimation];
+    
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     
     [self setupGL];
+    [self resetAnimation];
     
 }
 - (void)update
@@ -41,7 +42,7 @@
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     
     _homeStick = [[StickMan alloc] init];
-    _homeStick.state = FALLING;
+    
 }
 
 - (void)tearDownGL
@@ -123,7 +124,6 @@
     gvc.gvDelegate = self;
     starting = YES;
     
-    
 }
 
 - (void) openGame{
@@ -135,6 +135,8 @@
     xPos = 0.0;
     yPos = -3.0;
     starting = NO;
+    
+    _homeStick.state = FALLING;
 }
 
 - (IBAction)records:(id)sender {
