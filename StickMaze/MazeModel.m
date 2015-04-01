@@ -148,7 +148,7 @@
     glDisable(GL_BLEND);
     glEnable(GL_LINE_SMOOTH);
     //translate and rotate as required
-    glTranslatef(-_playerXOffset, -_playerYOffset, 0.);
+    glTranslatef(-_playerXOffset/2., -_playerYOffset, 0.);
     
     //draw each applicable line for each cell of the maze
     for(int i = 0; i < self.len; i++) {
@@ -215,20 +215,11 @@
 
 - (void) moveStick:(GLfloat)deltaX y:(GLfloat)deltaY orientation:(int)orientation{
     
-    
     GLfloat scaledDeltaX = deltaX/_playerScale;
     GLfloat scaledDeltaY = deltaY/_playerScale;
-    GLfloat actualXOffset = 0;
-    GLfloat actualYOffset = 0;
     //switched if on side.
-    if( orientation == 0 || orientation == 2){
-        actualXOffset = _playerXOffset;
-        actualYOffset = _playerYOffset;
-    }
-    else if (orientation == 1 || orientation == 3){
-        actualXOffset = _playerYOffset;
-        actualYOffset = _playerXOffset;
-    }
+    GLfloat actualXOffset = orientation%2 == 0 ? _playerXOffset : _playerYOffset;
+    GLfloat actualYOffset = orientation%2 == 0 ? _playerYOffset : _playerXOffset;
     
 
     MazeCell *cell = self.mazeCells[(int)floorf(_playerXPos)][(int)floorf(_playerYPos)];
@@ -241,7 +232,7 @@
             else if(ceilf(_playerYPos) == 0 &&
                     _playerYPos < actualYOffset)
                 _playerYPos += scaledDeltaY;
-            else if(_playerYPos < ceilf(_playerYPos) - actualYOffset/2. - 0.12)
+            else if(_playerYPos < ceilf(_playerYPos) - actualYOffset/2.)
                 _playerYPos += scaledDeltaY;
             
         }
@@ -249,7 +240,7 @@
             if (cell.northExit) {
                 _playerYPos += scaledDeltaY;
             }
-            else if(_playerYPos > floorf(_playerYPos) + 0.08)
+            else if(_playerYPos > floorf(_playerYPos) + 0.05)
                 _playerYPos += scaledDeltaY;
             
         }
@@ -263,7 +254,7 @@
             else if(ceilf(_playerXPos) == 0 &&
                     _playerXPos < actualXOffset)
                  _playerXPos += scaledDeltaX;
-            else if(_playerXPos < ceilf(_playerXPos) - actualXOffset/2. - 0.08)
+            else if(_playerXPos < ceilf(_playerXPos) - actualXOffset/2.)
                 _playerXPos += scaledDeltaX;
                 
         }
@@ -280,53 +271,41 @@
 
 
 - (BOOL) hitsFloor:(int)orientation{
+    NSLog(@"%f to %d    ,   %f to %d", _playerXPos, (int)floorf(_playerXPos), _playerYPos, (int)floorf(_playerYPos));
+    
     MazeCell *cell = self.mazeCells[(int)floorf(_playerXPos)][(int)floorf(_playerYPos)];
     GLfloat actualXOffset = orientation%2 == 0 ? _playerXOffset : _playerYOffset;
     GLfloat actualYOffset = orientation%2 == 0 ? _playerYOffset : _playerXOffset;
     
-    if(_playerYPos >= 0 && _playerYPos <= self.len){
-//        if(scaledDeltaY > 0){
-//            if (cell.southExit) {
-//                _playerYPos += scaledDeltaY;
-//            }
-//            else if(ceilf(_playerYPos) == 0 &&
-//                    _playerYPos < actualYOffset)
-//                _playerYPos += scaledDeltaY;
-//            else if(_playerYPos < ceilf(_playerYPos) - actualYOffset/2.)
-//                _playerYPos += scaledDeltaY;
-//            
-//        }
-//        else if(scaledDeltaY < 0){
-//            if (cell.northExit) {
-//                _playerYPos += scaledDeltaY;
-//            }
-//            else if(_playerYPos > floorf(_playerYPos))
-//                _playerYPos += scaledDeltaY;
-//            
-//        }
+    if(orientation == 0){
+        if(cell.northExit)
+            return false;
+        else
+            return _playerYPos < floorf(_playerYPos) + 0.08;
     }
-    
-    if(_playerXPos >= 0 && _playerXPos <= self.len){
-//        if(scaledDeltaX > 0){
-//            if (cell.eastExit) {
-//                _playerXPos += scaledDeltaX;
-//            }
-//            else if(ceilf(_playerXPos) == 0 &&
-//                    _playerXPos < actualXOffset)
-//                _playerXPos += scaledDeltaX;
-//            else if(_playerXPos < ceilf(_playerXPos) - actualXOffset/2. - 0.1)
-//                _playerXPos += scaledDeltaX;
-//            
-//        }
-//        else if(scaledDeltaX < 0){
-//            if (cell.westExit) {
-//                _playerXPos += scaledDeltaX;
-//            }
-//            else if(_playerXPos > floorf(_playerXPos))
-//                _playerXPos += scaledDeltaX;
-//            
-//        }
+    else if(orientation == 1){
+        if(cell.eastExit)
+            return false;
+        else if(ceilf(_playerXPos) == 0)
+            return _playerXPos > actualXOffset;
+        else
+            return _playerXPos > ceilf(_playerXPos) - actualXOffset/2. - 0.08;
     }
+    else if(orientation == 2){
+        if(cell.southExit)
+            return false;
+        else if(ceilf(_playerYPos) == 0)
+            return _playerYPos < actualYOffset;
+        else
+            return _playerYPos > ceilf(_playerYPos) - actualYOffset/2. - 0.12;
+    }
+    else if(orientation == 3){
+        if(cell.westExit)
+            return false;
+        else
+            return _playerXPos < floorf(_playerXPos) + 0.05;
+    }
+
     return true;
 }
 

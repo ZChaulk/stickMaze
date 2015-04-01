@@ -20,10 +20,8 @@
         NSLog(@"Failed to create ES context");
     }
     
-    xPos = 0.0;
-    yPos = -3.0;
-    starting = NO;
-    
+   
+    [self resetAnimation];
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
@@ -129,8 +127,14 @@
 }
 
 - (void) openGame{
-    starting = NO;
+    [self resetAnimation];
     [self presentViewController:gvc animated:NO completion:nil];
+}
+
+- (void) resetAnimation{
+    xPos = 0.0;
+    yPos = -3.0;
+    starting = NO;
 }
 
 - (IBAction)records:(id)sender {
