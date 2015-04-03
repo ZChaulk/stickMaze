@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GLg-bQ-76U">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--Stick Maze-->
+        <scene sceneID="csQ-B5-6u8">
+            <objects>
+                <glkViewController title="Stick Maze" preferredFramesPerSecond="30" id="GLg-bQ-76U" customClass="HomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AyX-mf-dNw"/>
+                        <viewControllerLayoutGuide type="bottom" id="SHe-ah-T80"/>
+                    </layoutGuides>
+                    <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" id="qPI-Qc-TMW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Cb-Bg-XFY">
+                                <rect key="frame" x="219" y="454" width="162" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="nb8-3R-KFT"/>
+                                    <constraint firstAttribute="width" constant="162" id="rK3-9m-S5W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                                <state key="normal" title="Start Game!">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="start:" destination="GLg-bQ-76U" eventType="touchUpInside" id="q1l-CA-myW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVK-0l-XAN">
+                                <rect key="frame" x="265" y="504" width="71" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="32L-PJ-El5"/>
+                                    <constraint firstAttribute="width" constant="71" id="PNX-kV-9Bp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                <state key="normal" title="Records">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="records:" destination="GLg-bQ-76U" eventType="touchUpInside" id="PYP-Ma-NGR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stick Maze!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="jUU-I3-2QS">
+                                <rect key="frame" x="155" y="20" width="291" height="66"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="60"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="1Cb-Bg-XFY" secondAttribute="centerX" id="3ZC-RG-UWC"/>
+                            <constraint firstItem="jUU-I3-2QS" firstAttribute="top" secondItem="AyX-mf-dNw" secondAttribute="bottom" id="DTt-z0-0qk"/>
+                            <constraint firstItem="jVK-0l-XAN" firstAttribute="top" secondItem="1Cb-Bg-XFY" secondAttribute="bottom" constant="8" symbolic="YES" id="E6e-Pd-9Om"/>
+                            <constraint firstItem="jUU-I3-2QS" firstAttribute="centerX" secondItem="jVK-0l-XAN" secondAttribute="centerX" id="aAp-GA-IdD"/>
+                            <constraint firstAttribute="bottom" secondItem="1Cb-Bg-XFY" secondAttribute="bottom" constant="104" id="d4a-iy-crC"/>
+                            <constraint firstItem="jUU-I3-2QS" firstAttribute="centerX" secondItem="qPI-Qc-TMW" secondAttribute="centerX" id="otO-YU-DjF"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="delegate" destination="GLg-bQ-76U" id="RO0-Gg-Fv7"/>
+                        </connections>
+                    </glkView>
+                </glkViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4p-e9-9Ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="638" y="375"/>
+        </scene>
+    </scenes>
+</document>
