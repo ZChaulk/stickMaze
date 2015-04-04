@@ -11,6 +11,8 @@
 @implementation RecordsViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_scoreLoader loadScores];
+    self.score.text = [NSString stringWithFormat:@"%d", [_scoreLoader getScore:1]];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -21,4 +23,5 @@
 - (IBAction)returnPress:(id)sender {
     [self.delegate notifyReturn];
 }
+
 @end

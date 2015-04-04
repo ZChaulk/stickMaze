@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "ScoreController.h"
 
 @protocol RecordsViewControllerDelegate <NSObject>
 
@@ -14,7 +16,10 @@
 
 @end
 
-@interface RecordsViewController : UIViewController
+@interface RecordsViewController : UIViewController {
+    ScoreController *_scoreLoader;
+}
+
 - (IBAction)returnPress:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *score;
 @property (nonatomic, strong) id<RecordsViewControllerDelegate> delegate;
