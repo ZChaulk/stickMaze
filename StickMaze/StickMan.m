@@ -10,8 +10,7 @@
 #import <UIKit/UIKit.h>
 @implementation StickMan
 
-@synthesize health, levelsCompletedThisGame;
-
+@synthesize health, levelsCompletedThisGame, isDead;
 - (StickMan*) init{
     self = [super init];
     if(self){

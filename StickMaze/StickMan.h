@@ -33,7 +33,8 @@ typedef enum{
     bool isDead;
 }
 @property playerState state;
-@property (nonatomic) int health, levelsCompletedThisGame;
+@property bool isDead;
+@property (nonatomic) int health,levelsCompletedThisGame;
 - (void) dealloc;
 - (void)loadTexture:(NSString *)file textureID:(GLuint) texID;
 - (StickMan*) init;

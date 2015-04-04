@@ -198,6 +198,9 @@
 - (void)update
 {
     [self setupOrthographicView: self.view.bounds.size];
+    if(player.isDead){
+        [self exitGame];
+    }
 }
 
 - (void)tearDownGL
@@ -284,10 +287,13 @@
 -(void)endGame:(PauseMenuViewController *)pauseMenuViewController{
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self exitGame];
+}
+
+-(void) exitGame{
     [_scoreCon updateScores:player.levelsCompletedThisGame];
     [_scoreCon saveScores];
     [self.gvDelegate notifyGameDone];
-    
 }
 
 
