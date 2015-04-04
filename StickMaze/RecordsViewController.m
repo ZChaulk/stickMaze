@@ -13,7 +13,12 @@
     [super viewDidLoad];
     _scoreLoader = [[ScoreController alloc] init];
     [_scoreLoader loadScores];
-    self.score.text = [NSString stringWithFormat:@"%d", [_scoreLoader getScore:1]];
+    self.totalRuns.text = [NSString stringWithFormat:@"%d", [_scoreLoader getScore:0]];
+    self.topScore.text = [NSString stringWithFormat:@"%d", [_scoreLoader getScore:1]];
+    self.secondTop.text = [NSString stringWithFormat:@"%d", [_scoreLoader getScore:2]];
+    self.thirdTop.text = [NSString stringWithFormat:@"%d", [_scoreLoader getScore:3]];
+    self.fourthTop.text = [NSString stringWithFormat:@"%d", [_scoreLoader getScore:4]];
+    self.fifthTop.text = [NSString stringWithFormat:@"%d", [_scoreLoader getScore:5]];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

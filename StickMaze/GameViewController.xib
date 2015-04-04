@@ -47,7 +47,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="centerY" secondItem="giS-Jk-Dgc" secondAttribute="centerY" id="3Re-AF-WjX"/>
                         <constraint firstItem="k31-au-TbX" firstAttribute="centerY" secondItem="7vE-kB-VCw" secondAttribute="centerY" id="3gf-PF-fLK"/>
@@ -76,7 +76,7 @@
             <connections>
                 <outletCollection property="gestureRecognizers" destination="Gmw-QU-xPH" appends="YES" id="3J8-Q2-gOD"/>
             </connections>
-            <point key="canvasLocation" x="1821.5" y="311.5"/>
+            <point key="canvasLocation" x="472.5" y="398.5"/>
         </glkView>
         <tapGestureRecognizer numberOfTapsRequired="2" id="Gmw-QU-xPH">
             <connections>

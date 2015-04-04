@@ -68,7 +68,7 @@
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4p-e9-9Ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="375"/>
+            <point key="canvasLocation" x="393" y="367"/>
         </scene>
     </scenes>
 </document>

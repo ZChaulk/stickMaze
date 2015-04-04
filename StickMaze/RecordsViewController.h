@@ -19,9 +19,16 @@
 @interface RecordsViewController : UIViewController {
     ScoreController *_scoreLoader;
 }
-
 - (IBAction)returnPress:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *score;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalRuns;
+@property (weak, nonatomic) IBOutlet UILabel *topScore;
+@property (weak, nonatomic) IBOutlet UILabel *secondTop;
+@property (weak, nonatomic) IBOutlet UILabel *thirdTop;
+@property (weak, nonatomic) IBOutlet UILabel *fourthTop;
+@property (weak, nonatomic) IBOutlet UILabel *fifthTop;
+
+
 @property (nonatomic, strong) id<RecordsViewControllerDelegate> delegate;
 
 @end

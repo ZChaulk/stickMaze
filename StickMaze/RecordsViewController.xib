@@ -7,7 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordsViewController">
             <connections>
-                <outlet property="score" destination="CAs-X3-Xcn" id="J7g-Ik-zGj"/>
+                <outlet property="fifthTop" destination="Cke-Xp-eGn" id="atx-ie-OzR"/>
+                <outlet property="fourthTop" destination="gJr-w6-RMN" id="o62-3y-5Z3"/>
+                <outlet property="secondTop" destination="BXJ-4j-66f" id="g0J-0y-6qx"/>
+                <outlet property="thirdTop" destination="L7G-dc-Tgw" id="nts-9P-DQu"/>
+                <outlet property="topScore" destination="CAs-X3-Xcn" id="xNU-Je-OcS"/>
+                <outlet property="totalRuns" destination="nDI-lh-9o4" id="ddf-X8-HaB"/>
                 <outlet property="view" destination="1Tx-bd-jms" id="SGH-i3-FNp"/>
             </connections>
         </placeholder>
@@ -16,19 +21,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="y5m-EA-rXT">
-                    <rect key="frame" x="257" y="117" width="86" height="21"/>
-                    <attributedString key="attributedText">
-                        <fragment content="High Score">
-                            <attributes>
-                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jF1-Nd-qnL">
                     <rect key="frame" x="8" y="28" width="47" height="30"/>
                     <constraints>
@@ -44,23 +36,109 @@
                         <action selector="returnPress:" destination="-1" eventType="touchUpInside" id="q9g-ae-YQk"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAs-X3-Xcn">
-                    <rect key="frame" x="295" y="146" width="10" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Levels Cleared" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="gcj-HA-jQ3">
+                    <rect key="frame" x="73" y="176" width="233" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="233" id="P1V-TZ-fFg"/>
+                        <constraint firstAttribute="height" constant="44" id="adW-jU-Baq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="CAs-X3-Xcn">
+                    <rect key="frame" x="332" y="225" width="100" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="KjJ-Bm-X0d"/>
+                        <constraint firstAttribute="height" constant="27" id="bAZ-VT-R22"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="nDI-lh-9o4">
+                    <rect key="frame" x="332" y="184" width="100" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="27" id="6Xa-jQ-eIp"/>
+                        <constraint firstAttribute="width" constant="100" id="S6J-CE-u0A"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="BXJ-4j-66f">
+                    <rect key="frame" x="332" y="260" width="100" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="3Yr-eX-BMQ"/>
+                        <constraint firstAttribute="height" constant="27" id="Gno-6Q-SSM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="L7G-dc-Tgw">
+                    <rect key="frame" x="332" y="295" width="100" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="27" id="cxW-uw-bz9"/>
+                        <constraint firstAttribute="width" constant="100" id="f5c-aw-uKS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="gJr-w6-RMN">
+                    <rect key="frame" x="332" y="330" width="100" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Kv4-S2-zAU"/>
+                        <constraint firstAttribute="height" constant="27" id="wgR-Mi-6oE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="Cke-Xp-eGn">
+                    <rect key="frame" x="332" y="365" width="100" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="27" id="KyA-V5-JQS"/>
+                        <constraint firstAttribute="width" constant="100" id="duM-tX-7AX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Scores" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="MNe-tJ-ay4">
+                    <rect key="frame" x="94" y="219" width="212" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="CWH-Xt-piZ"/>
+                        <constraint firstAttribute="width" constant="212" id="g2W-DW-rJs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="y5m-EA-rXT" firstAttribute="centerX" secondItem="CAs-X3-Xcn" secondAttribute="centerX" id="JRK-Hm-Kyw"/>
-                <constraint firstItem="CAs-X3-Xcn" firstAttribute="top" secondItem="y5m-EA-rXT" secondAttribute="bottom" constant="8" id="SyB-4B-s5B"/>
+                <constraint firstItem="BXJ-4j-66f" firstAttribute="leading" secondItem="Cke-Xp-eGn" secondAttribute="leading" id="0Ka-Ks-oGE"/>
+                <constraint firstAttribute="centerX" secondItem="MNe-tJ-ay4" secondAttribute="centerX" constant="100" id="1QE-0u-RYK"/>
+                <constraint firstItem="BXJ-4j-66f" firstAttribute="leading" secondItem="L7G-dc-Tgw" secondAttribute="leading" id="3nb-Rv-9nP"/>
+                <constraint firstItem="CAs-X3-Xcn" firstAttribute="leading" secondItem="nDI-lh-9o4" secondAttribute="leading" id="7Z0-g3-CwX"/>
+                <constraint firstItem="Cke-Xp-eGn" firstAttribute="top" secondItem="gJr-w6-RMN" secondAttribute="bottom" constant="8" id="HVa-Oz-oro"/>
+                <constraint firstItem="MNe-tJ-ay4" firstAttribute="bottom" secondItem="CAs-X3-Xcn" secondAttribute="bottom" id="SIz-6Z-Lyb"/>
+                <constraint firstItem="MNe-tJ-ay4" firstAttribute="top" secondItem="1Tx-bd-jms" secondAttribute="top" constant="219" id="Sap-FX-rbt"/>
                 <constraint firstItem="jF1-Nd-qnL" firstAttribute="leading" secondItem="1Tx-bd-jms" secondAttribute="leadingMargin" id="T7u-rY-tjk"/>
-                <constraint firstItem="y5m-EA-rXT" firstAttribute="top" secondItem="1Tx-bd-jms" secondAttribute="top" constant="117" id="UTB-qB-I9D"/>
+                <constraint firstItem="gJr-w6-RMN" firstAttribute="top" secondItem="L7G-dc-Tgw" secondAttribute="bottom" constant="8" id="UPA-3f-WLN"/>
+                <constraint firstItem="MNe-tJ-ay4" firstAttribute="top" secondItem="gcj-HA-jQ3" secondAttribute="bottom" constant="-1" id="Ufu-f4-kSe"/>
+                <constraint firstItem="BXJ-4j-66f" firstAttribute="leading" secondItem="gJr-w6-RMN" secondAttribute="leading" id="aPe-M2-kCd"/>
+                <constraint firstItem="BXJ-4j-66f" firstAttribute="leading" secondItem="CAs-X3-Xcn" secondAttribute="leading" id="dSb-fI-2Fy"/>
+                <constraint firstItem="MNe-tJ-ay4" firstAttribute="leading" secondItem="gcj-HA-jQ3" secondAttribute="trailing" constant="-212" id="dVz-ih-Qqe"/>
                 <constraint firstItem="jF1-Nd-qnL" firstAttribute="top" secondItem="1Tx-bd-jms" secondAttribute="topMargin" constant="20" id="f94-G4-gGB"/>
-                <constraint firstAttribute="centerX" secondItem="y5m-EA-rXT" secondAttribute="centerX" id="qFU-7w-KtX"/>
+                <constraint firstItem="CAs-X3-Xcn" firstAttribute="leading" secondItem="MNe-tJ-ay4" secondAttribute="trailing" constant="26" id="gZK-Df-wai"/>
+                <constraint firstItem="L7G-dc-Tgw" firstAttribute="top" secondItem="BXJ-4j-66f" secondAttribute="bottom" constant="8" id="gqN-Ol-RYd"/>
+                <constraint firstItem="BXJ-4j-66f" firstAttribute="top" secondItem="CAs-X3-Xcn" secondAttribute="bottom" constant="8" id="h3F-AA-QUo"/>
+                <constraint firstItem="CAs-X3-Xcn" firstAttribute="top" secondItem="nDI-lh-9o4" secondAttribute="bottom" constant="14" id="lyL-XH-ugh"/>
             </constraints>
-            <point key="canvasLocation" x="1365" y="1087"/>
+            <point key="canvasLocation" x="1615" y="1020"/>
         </view>
     </objects>
 </document>

@@ -57,7 +57,6 @@
 - (bool) saveScores {
     //set up the scores we will write to file
     if([_scores count] < 6) { [self loadScores]; }
-    NSMutableArray *topScores = [[NSMutableArray alloc] initWithArray:_scores];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsDir = [paths objectAtIndex:0];
