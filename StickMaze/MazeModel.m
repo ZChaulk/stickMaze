@@ -349,12 +349,12 @@
     GLfloat scaledDeltaX = deltaX/_playerScale;
     GLfloat scaledDeltaY = deltaY/_playerScale;
     //switched if on side. (left and right map to 1 and 3, which are odd)
-    GLfloat actualXOffset = orientation%2 == 0 ? _playerXOffset/2. : _playerYOffset/2.;
-    GLfloat actualYOffset = orientation%2 == 0 ? _playerYOffset/2. : _playerXOffset/2.;
+    GLfloat actualXOffset = orientation%2 == 0 ? _playerXOffset : _playerYOffset;
+    GLfloat actualYOffset = orientation%2 == 0 ? _playerYOffset : _playerXOffset;
     
     MazeCell *cell = self.mazeCells[(int)floorf(_playerXPos)][(int)floorf(_playerYPos)];
     
-    NSLog(@"%d, %d", (int)floorf(_playerXPos), (int)floorf(_playerYPos));
+    
     if(_playerYPos + scaledDeltaY >= 0 && _playerYPos + scaledDeltaY <= self.len){
         if(scaledDeltaY > 0){
             if (cell.southExit) {
@@ -363,7 +363,7 @@
             else if(ceilf(_playerYPos) == 0 &&
                     _playerYPos < actualYOffset)
                 _playerYPos += scaledDeltaY;
-            else if(_playerYPos < ceilf(_playerYPos) - actualYOffset)
+            else if(_playerYPos < ceilf(_playerYPos) - actualYOffset/2.)
                 _playerYPos += scaledDeltaY;
             
         }
@@ -385,7 +385,7 @@
             else if(ceilf(_playerXPos) == 0 &&
                     _playerXPos < actualXOffset)
                  _playerXPos += scaledDeltaX;
-            else if(_playerXPos < ceilf(_playerXPos) - actualXOffset)
+            else if(_playerXPos < ceilf(_playerXPos) - actualXOffset/2.)
                 _playerXPos += scaledDeltaX;
                 
         }

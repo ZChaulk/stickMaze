@@ -113,7 +113,7 @@
         orientation = 2;
     GLfloat deltaX = 0;
     GLfloat deltaY = 0;
-    
+    \
     if(![mazeModel hitsFloor:orientation]){
         if(orientation == 0)
             deltaY = -0.2;
