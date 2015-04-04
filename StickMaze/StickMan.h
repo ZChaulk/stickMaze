@@ -27,8 +27,10 @@ typedef enum{
     int runLeftTic;
     int standUpTic;
     int fallingTic;
+    int deadTic;
     int maxHealth;
     bool canBeHurt;
+    bool isDead;
 }
 @property playerState state;
 @property (nonatomic) int health, levelsCompletedThisGame;

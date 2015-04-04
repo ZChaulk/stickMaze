@@ -16,7 +16,7 @@
     self = [super init];
     if(self){
         self.state = STANDING;
-        runLeftTic = runRightTic = standUpTic = fallingTic = 0;
+        runLeftTic = runRightTic = standUpTic = fallingTic = deadTic = 0;
         glGenTextures(1, &_standingID);
         glGenTextures(3, _runLeftID);
         glGenTextures(3, _runRightID);
@@ -38,7 +38,7 @@
         maxHealth = 8;
         self.health = 4;
         canBeHurt = true;
-        
+        isDead = false;
         self.levelsCompletedThisGame = 0;
     }
     return self;

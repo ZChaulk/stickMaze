@@ -13,7 +13,7 @@
     NSMutableArray *_scores;
     int _gameScores[6];
 }
-
+-(ScoreController*) initScores;
 - (void) updateScores:(int)lastGameScore;
 - (bool) saveScores;
 - (void) loadScores;

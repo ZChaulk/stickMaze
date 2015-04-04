@@ -11,6 +11,13 @@
 
 @implementation ScoreController
 
+-(ScoreController*) initScores{
+    self = [super init];
+    if(self)
+        [self loadScores];
+    return self;
+}
+
 - (void) updateScores:(int)lastGameScore {
     _gameScores[0] = _gameScores[0] + lastGameScore;
     for(int i = 1; i < 6; i++) {
@@ -18,8 +25,8 @@
             int tempLast = lastGameScore;
             int tempNext;
             for(int j = i; j < 6; j++) {
-                tempNext = _gameScores[i];
-                _gameScores[i] = tempLast;
+                tempNext = _gameScores[j];
+                _gameScores[j] = tempLast;
                 tempLast = tempNext;
             }
             break; //jump out of the loop or else we'll just duplicate the new score all down the list

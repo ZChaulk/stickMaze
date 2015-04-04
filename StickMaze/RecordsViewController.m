@@ -11,8 +11,7 @@
 @implementation RecordsViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _scoreLoader = [[ScoreController alloc] init];
-    [_scoreLoader loadScores];
+    _scoreLoader = [[ScoreController alloc] initScores];
     self.totalRuns.text = [NSString stringWithFormat:@"%d", [_scoreLoader getScore:0]];
     self.topScore.text = [NSString stringWithFormat:@"%d", [_scoreLoader getScore:1]];
     self.secondTop.text = [NSString stringWithFormat:@"%d", [_scoreLoader getScore:2]];

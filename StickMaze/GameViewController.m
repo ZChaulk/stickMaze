@@ -24,7 +24,8 @@
     [self setUpMotion];
     [self setupGL];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
-    _scoreCon = [[ScoreController alloc] init];
+    _scoreCon = [[ScoreController alloc] initScores];
+    
     zoomedOut = NO;
 }
 //motion section****************
@@ -61,10 +62,12 @@
     if(gravity < 0)
         gravity += 360;
     //inital value of 0 causes game to start on right angle.  small counter to wait for accelerometer to adjust.
-    if(startUpAcceleratorVal > 5)
-        [self updateForces];
-    else
-        startUpAcceleratorVal++;
+    if(player.state != DEAD){
+        if(startUpAcceleratorVal > 5)
+            [self updateForces];
+        else
+            startUpAcceleratorVal++;
+    }
 }
 
 -(void) updateForces{
@@ -178,6 +181,7 @@
             //update the scores
             [_scoreCon updateScores:player.levelsCompletedThisGame];
             [_scoreCon saveScores];
+            player.state = DEAD;
         }
     }
     self.lifeLabel.text = [NSString stringWithFormat:@"Life: %d", player.health];
@@ -221,10 +225,8 @@
     // enable the vertex array rendering
     glEnableClientState(GL_VERTEX_ARRAY);
     
-   
-    
     glPushMatrix();{
-        if(!zoomedOut)
+        if(!zoomedOut && player.state != DEAD)
             [self updateMaze];
         [mazeModel drawOpenGLES1:zoomedOut];
     }glPopMatrix();
