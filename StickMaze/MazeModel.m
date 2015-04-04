@@ -440,21 +440,33 @@
 }
 
 
-- (BOOL) hitsSpikes:(int)orientation {
-//    GLfloat lol = _playerXPos;
-//    GLfloat lols = _playerYPos;
-    
-    if(orientation == 0){
-        
+- (BOOL) hitsSpikes:(int)orientation { //some of these are probably upside-down
+    bool spikesPresent;
+    int distToSpike;
+    int minDistToSpike = 0.25; //we need to compensate for the size of the stick figure
+    //check spikes below the player
+    spikesPresent = (orientation==0 && cell.northSpike) || (orientation==1 && cell.westSpike)
+    || (orientation==2 && cell.southSpike) || (orientation==3 && cell.eastSpike);
+    if(spikesPresent && (playerYPos - floorf(playerYPos) < minDistToSpike)) { //no offset
+        return true; //we hit a spike which is below us
     }
-    else if(orientation == 1){
-        
+    //check spikes above the player
+    spikesPresent = (orientation==0 && cell.southSpike) || (orientation==1 && cell.eastSpike) ||
+    (orientation==2 && cell.northSpike) || (orientation==3 && cell.westSpike);
+    if(spikesPresent && (ceilf(playerYPos) - playerYPos + 2.) < minDistToSpike) { //offset of 2. for height
+        return true;
     }
-    else if(orientation == 2){
-        
+    //check spikes to the right of the player
+    spikesPresent = (orientation==0 && cell.eastSpike) || (orientation==1 && cell.northSpike) ||
+    (orientation==2 && cell.westSpike) || (orientation==3 && cell.southSpike);
+    if(spikesPresent && (ceilf(playerXPos) - playerXPos + 1.) < minDistToSpike) { //offset of 1. for width
+        return true;
     }
-    else if(orientation == 3){
-        
+    //check spikes to the left of the player
+    spikesPresent = (orientation==0 && cell.westSpike) || (orientation==1 && cell.southSpike)
+    || (orientation==2 && cell.eastSpike) || (orientation==3 && cell.northSpike);
+    if(spikesPresent && (playerXPos - floorf(playerXPos) < minDistToSpike)) { //no offset
+        return true;
     }
     return false;
 }
