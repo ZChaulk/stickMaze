@@ -9,5 +9,16 @@
 #ifndef StickMaze_ScoreController_h
 #define StickMaze_ScoreController_h
 
+@interface ScoreController : NSObject {
+    NSMutableArray *_scores;
+    int _gameScores[6];
+}
+
+- (void) updateScores:(int)lastGameScore;
+- (bool) saveScores;
+- (void) loadScores;
+- (int) getScore:(int)indx;
+
+@end
 
 #endif
