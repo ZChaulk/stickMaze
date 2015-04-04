@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/GameViewController.m"
-            timestampString = "449609662.534747"
+            timestampString = "449779202.477951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
-            landmarkName = "-pause:"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "-glkView:drawInRect:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -170,12 +170,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
-            landmarkName = "-moveStick:y:orientation:"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -186,12 +186,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
-            landmarkName = "-moveStick:y:orientation:"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -202,60 +202,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
-            landmarkName = "-moveStick:y:orientation:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
-            landmarkName = "-moveStick:y:orientation:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
-            landmarkName = "-moveStick:y:orientation:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "288"
             endingLineNumber = "288"
-            landmarkName = "-moveStick:y:orientation:"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -266,28 +218,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "295"
-            endingLineNumber = "295"
-            landmarkName = "-moveStick:y:orientation:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "292"
             endingLineNumber = "292"
-            landmarkName = "-moveStick:y:orientation:"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -298,12 +234,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "-moveStick:y:orientation:"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -314,12 +250,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
-            landmarkName = "-moveStick:y:orientation:"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -330,12 +266,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
+            landmarkName = "-drawOpenGLES1:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
+            timestampString = "449611306.635109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "-drawOpenGLES1:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
+            timestampString = "449611306.635109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "-drawOpenGLES1:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
+            timestampString = "449611306.635109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "-drawOpenGLES1:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
+            timestampString = "449611306.635109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "-drawOpenGLES1:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "266"
             endingLineNumber = "266"
-            landmarkName = "-moveStick:y:orientation:"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -346,12 +362,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
-            landmarkName = "-moveStick:y:orientation:"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -362,12 +378,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "312"
             endingLineNumber = "312"
-            landmarkName = "-hitsFloor:"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -378,12 +394,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
-            landmarkName = "-hitsFloor:"
+            startingLineNumber = "329"
+            endingLineNumber = "329"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -394,12 +410,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
-            landmarkName = "-hitsFloor:"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -410,12 +426,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "-hitsFloor:"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -426,12 +442,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
-            landmarkName = "-hitsFloor:"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -442,44 +458,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
+            timestampString = "449611306.635109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
+            landmarkName = "-drawOpenGLES1:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "309"
             endingLineNumber = "309"
-            landmarkName = "-hitsFloor:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
-            landmarkName = "-hitsFloor:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609322.653575"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
-            landmarkName = "-hitsFloor:"
+            landmarkName = "-drawOpenGLES1:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -490,12 +490,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/GameViewController.m"
-            timestampString = "449609662.534747"
+            timestampString = "449779202.477951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "-glkView:drawInRect:"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-tearDownGL"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -506,12 +506,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
-            timestampString = "449609407.173295"
+            timestampString = "449611306.635109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "-drawOpenGLES1:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
+            timestampString = "449611306.635109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
+            landmarkName = "-drawOpenGLES1:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
+            timestampString = "449611306.635109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "-drawOpenGLES1:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
+            timestampString = "449775124.651718"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "-drawOpenGLES1:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
+            timestampString = "449780368.461636"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "433"
+            endingLineNumber = "433"
+            landmarkName = "-hitsFloor:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Users/labnet3/st5/znc028/Desktop/StickMaze/StickMaze/MazeModel.m"
+            timestampString = "449780368.461636"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
+            landmarkName = "-moveStick:y:orientation:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

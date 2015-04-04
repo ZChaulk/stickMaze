@@ -27,11 +27,16 @@ typedef enum{
     int runLeftTic;
     int standUpTic;
     int fallingTic;
+    int maxHealth;
+    bool canBeHurt;
 }
 @property playerState state;
+@property (nonatomic) int health, levelsCompletedThisGame;
 - (void) dealloc;
 - (void)loadTexture:(NSString *)file textureID:(GLuint) texID;
 - (StickMan*) init;
 - (void)drawOpenGLES1:(BOOL)zoomedOut;
 - (void)bind;
+- (bool) dealDamage;
+- (bool) healDamage;
 @end

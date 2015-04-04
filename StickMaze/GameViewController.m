@@ -150,12 +150,26 @@
     }
     
     [mazeModel moveStick:deltaX y:deltaY orientation:orientation];
+    //first check to see if we've reached the end
     if([mazeModel hitsGoal]) {
         //add a victory animation
+        
+        //try to add one to the player's health
+        zoomedOut = YES;
+        [player healDamage];
+        //iterate the player's score
+        player.levelsCompletedThisGame++;
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", player.levelsCompletedThisGame];
+        //make a new level for the player to play
         int oldLen = mazeModel.len;
-        oldLen = (oldLen < 25)? (oldLen++) : oldLen;
-        mazeModel = [[MazeModel alloc] initWithSize:5];
+        oldLen = (oldLen <= 25)? (oldLen+1) : oldLen;
+        mazeModel = [[MazeModel alloc] initWithSize:oldLen];
     }
+    //finally, check to see if we've hit any spikes
+    if([mazeModel hitsSpikes:orientation]) {
+        //see if we will deal damage to the player
+    }
+    self.lifeLabel.text = [NSString stringWithFormat:@"Life: %d", player.health];
 }
 //openGL Section***********
 
@@ -163,7 +177,7 @@
 {
     [EAGLContext setCurrentContext:self.context];
     player = [[StickMan alloc] init];
-    mazeModel = [[MazeModel alloc] initWithSize:5];
+    mazeModel = [[MazeModel alloc] initWithSize:3];
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 }
 - (void)update
@@ -260,6 +274,7 @@
     [self.gvDelegate notifyGameDone];
     
 }
+
 
 
 @end

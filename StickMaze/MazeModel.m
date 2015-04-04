@@ -22,6 +22,7 @@
     self = [super init];
     if(self){
         _playerScale = 3;
+        _spikeGenProbability = 5*4;// 4 walls/tile, 1 spike/4 tiles (not exactly since we discount doors but a little less is OK)
         //allocate the maze using the size
         self.len = sizeIn;
         self.mazeCells = [[NSMutableArray alloc] initWithCapacity:self.len];
@@ -130,6 +131,28 @@
             entry.eastExit = true;
         }
     }
+    //if the cell is complete we can add spikes
+    
+    //don't want spikes on the start or the goal
+    if( (xPos != self.goalX || yPos != self.goalY) && (xPos != 0 || yPos != 0) ) {
+        bool spikeChance;
+        if(!currentCell.northExit) {
+            spikeChance = ((arc4random()%_spikeGenProbability) < 1.);
+            currentCell.northSpike = spikeChance;
+        }
+        if(!currentCell.southExit) {
+            spikeChance = ((arc4random()%_spikeGenProbability) < 1.);
+            currentCell.southSpike = spikeChance;
+        }
+        if(!currentCell.eastExit) {
+            spikeChance = ((arc4random()%_spikeGenProbability) < 1.);
+            currentCell.eastSpike = spikeChance;
+        }
+        if(!currentCell.westExit) {
+            spikeChance = ((arc4random()%_spikeGenProbability) < 1.);
+            currentCell.westSpike = spikeChance;
+        }
+    }
 }
 
 - (void) drawOpenGLES1:(BOOL)zoomedOut{
@@ -144,6 +167,14 @@
         0., 0., 0., 0.,
         0., 0., 0., 0.
     };
+    GLfloat spikeLines[] = {
+        0., 0., 0., 0.,
+        0., 0., 0., 0.,
+        0., 0., 0., 0.,
+        0., 0., 0., 0.,
+        0., 0.
+    };
+    GLfloat spikeScaledX, spikeScaledY, scaledIter;
     glColor4f(0, 0, 0, 1);
     
     if(zoomedOut){
@@ -161,7 +192,7 @@
     glDisable(GL_BLEND);
     glEnable(GL_LINE_SMOOTH);
     //translate and rotate as required
-    glTranslatef(-_playerXOffset/2., -_playerYOffset, 0.);
+    glTranslatef(-_playerXOffset/2. , -_playerYOffset/2., 0.);
     
     //draw each applicable line for each cell of the maze
     for(int i = 0; i < self.len; i++) {
@@ -179,6 +210,23 @@
                 //end point for north wall line Y
                 linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*j);
                 linesToDraw++;
+                
+                //consider drawing spikes
+                if(cellToDraw.northSpike) {
+                    spikeScaledX = (_playerScale*i); spikeScaledY = (_playerScale*j);
+                    scaledIter = 0.25 * _playerScale;
+                    for(int k = 0; k < 4; k++) { //there are four spikes on a spiked tile
+                        spikeLines[(4*k)] = spikeScaledX + (scaledIter*k); //x1
+                        spikeLines[(4*k)+1] = spikeScaledY; //y1
+                        
+                        spikeLines[(4*k)+2] = spikeScaledX + (scaledIter*k) + (scaledIter/2); //x2
+                        spikeLines[(4*k)+3] = spikeScaledY + (scaledIter); //y2
+                    }
+                    //add the last point
+                    spikeLines[16] = spikeScaledX + (_playerScale); spikeLines[17] = spikeScaledY;
+                    glVertexPointer(2, GL_FLOAT, 0, spikeLines);
+                    glDrawArrays(GL_LINE_STRIP, 0, 9);
+                }
             }
             //consider drawing a south wall
             if(!cellToDraw.southExit) {
@@ -191,6 +239,23 @@
                 //end point for south wall line Y
                 linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*(j+1));
                 linesToDraw++;
+                
+                //consider drawing spikes
+                if(cellToDraw.southSpike) {
+                    spikeScaledX = (_playerScale*i); spikeScaledY = (_playerScale*j);
+                    scaledIter = 0.25 * _playerScale;
+                    for(int k = 0; k < 4; k++) { //there are four spikes on a spiked tile
+                        spikeLines[(4*k)] = spikeScaledX + (scaledIter*k); //x1
+                        spikeLines[(4*k)+1] = spikeScaledY + (_playerScale); //y1
+                        
+                        spikeLines[(4*k)+2] = spikeScaledX + (scaledIter*k) + (scaledIter/2); //x2
+                        spikeLines[(4*k)+3] = spikeScaledY + (_playerScale) - (scaledIter); //y2
+                    }
+                    //add the last point
+                    spikeLines[16] = spikeScaledX + (_playerScale); spikeLines[17] = spikeScaledY + (_playerScale);
+                    glVertexPointer(2, GL_FLOAT, 0, spikeLines);
+                    glDrawArrays(GL_LINE_STRIP, 0, 9);
+                }
             }
             //consider drawing an east wall
             if(!cellToDraw.eastExit) {
@@ -203,6 +268,23 @@
                 //end point for east wall line Y
                 linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*(j+1));
                 linesToDraw++;
+                
+                //consider drawing spikes
+                if(cellToDraw.eastSpike) {
+                    spikeScaledX = (_playerScale*i); spikeScaledY = (_playerScale*j);
+                    scaledIter = 0.25 * _playerScale;
+                    for(int k = 0; k < 4; k++) { //there are four spikes on a spiked tile
+                        spikeLines[(4*k)] = spikeScaledX + _playerScale; //x1
+                        spikeLines[(4*k)+1] = spikeScaledY + (scaledIter*k); //y1
+                        
+                        spikeLines[(4*k)+2] = spikeScaledX + _playerScale - scaledIter; //x2
+                        spikeLines[(4*k)+3] = spikeScaledY + (scaledIter/2) + (scaledIter*k); //y2
+                    }
+                    //add the last point
+                    spikeLines[16] = spikeScaledX + (_playerScale); spikeLines[17] = spikeScaledY + (_playerScale);
+                    glVertexPointer(2, GL_FLOAT, 0, spikeLines);
+                    glDrawArrays(GL_LINE_STRIP, 0, 9);
+                }
             }
                 //consider drawing a west wall
             if(!cellToDraw.westExit) {
@@ -215,10 +297,30 @@
                 //end point for east west line Y
                 linesArr[(4*linesToDraw)+3] = (GLfloat)(_playerScale*(j+1));
                 linesToDraw++;
+                
+                //consider drawing spikes
+                if(cellToDraw.westSpike) {
+                    spikeScaledX = (_playerScale*i); spikeScaledY = (_playerScale*j);
+                    scaledIter = 0.25 * _playerScale;
+                    for(int k = 0; k < 4; k++) { //there are four spikes on a spiked tile
+                        //(x1, y1)->spike root in wall
+                        spikeLines[(4*k)] = spikeScaledX; //x1
+                        spikeLines[(4*k)+1] = spikeScaledY + (scaledIter*k); //y1
+                        
+                        //(x2, y2)->spike point
+                        spikeLines[(4*k)+2] = spikeScaledX + scaledIter; //x2
+                        spikeLines[(4*k)+3] = spikeScaledY + (scaledIter*k) + (scaledIter/2); //y2
+                    }
+                    //add the last point
+                    spikeLines[16] = spikeScaledX; spikeLines[17] = spikeScaledY + (_playerScale);
+                    glVertexPointer(2, GL_FLOAT, 0, spikeLines);
+                    glDrawArrays(GL_LINE_STRIP, 0, 9);
+                }
             }
             //consider drawing a background
-            if(i == self.goalX && j == self.goalY) {
-                glColor4f(0., 1., 0., 1.); //draw a green background for the goal
+            if((i == self.goalX && j == self.goalY) || (i==0 && j==0)) {
+                if(i==0 && j==0) { glColor4f(1., 0., 0., 1.); } //draw a red background for the start
+                else { glColor4f(0., 1., 0., 1.); } //draw a green background for the goal
                 GLfloat goalBg[] = {
                     //triangle one
                     (_playerScale*i), (_playerScale*j),
@@ -246,13 +348,13 @@
     
     GLfloat scaledDeltaX = deltaX/_playerScale;
     GLfloat scaledDeltaY = deltaY/_playerScale;
-    //switched if on side.
-    GLfloat actualXOffset = orientation%2 == 0 ? _playerXOffset : _playerYOffset;
-    GLfloat actualYOffset = orientation%2 == 0 ? _playerYOffset : _playerXOffset;
+    //switched if on side. (left and right map to 1 and 3, which are odd)
+    GLfloat actualXOffset = orientation%2 == 0 ? _playerXOffset/2. : _playerYOffset/2.;
+    GLfloat actualYOffset = orientation%2 == 0 ? _playerYOffset/2. : _playerXOffset/2.;
     
-
     MazeCell *cell = self.mazeCells[(int)floorf(_playerXPos)][(int)floorf(_playerYPos)];
     
+    NSLog(@"%d, %d", (int)floorf(_playerXPos), (int)floorf(_playerYPos));
     if(_playerYPos + scaledDeltaY >= 0 && _playerYPos + scaledDeltaY <= self.len){
         if(scaledDeltaY > 0){
             if (cell.southExit) {
@@ -261,7 +363,7 @@
             else if(ceilf(_playerYPos) == 0 &&
                     _playerYPos < actualYOffset)
                 _playerYPos += scaledDeltaY;
-            else if(_playerYPos < ceilf(_playerYPos) - actualYOffset/2.)
+            else if(_playerYPos < ceilf(_playerYPos) - actualYOffset)
                 _playerYPos += scaledDeltaY;
             
         }
@@ -269,7 +371,7 @@
             if (cell.northExit) {
                 _playerYPos += scaledDeltaY;
             }
-            else if(_playerYPos > floorf(_playerYPos) + 0.05)
+            else if(_playerYPos > floorf(_playerYPos) + 0.1)
                 _playerYPos += scaledDeltaY;
             
         }
@@ -283,7 +385,7 @@
             else if(ceilf(_playerXPos) == 0 &&
                     _playerXPos < actualXOffset)
                  _playerXPos += scaledDeltaX;
-            else if(_playerXPos < ceilf(_playerXPos) - actualXOffset/2.)
+            else if(_playerXPos < ceilf(_playerXPos) - actualXOffset)
                 _playerXPos += scaledDeltaX;
                 
         }
@@ -291,7 +393,7 @@
             if (cell.westExit) {
                 _playerXPos += scaledDeltaX;
             }
-            else if(_playerXPos > floorf(_playerXPos) + 0.05)
+            else if(_playerXPos > floorf(_playerXPos) + 0.1)
                 _playerXPos += scaledDeltaX;
 
         }
@@ -309,7 +411,7 @@
         if(cell.northExit)
             return false;
         else
-            return _playerYPos < floorf(_playerYPos) + 0.08;
+            return _playerYPos < floorf(_playerYPos) + 0.1;
     }
     else if(orientation == 1){
         if(cell.eastExit)
@@ -317,7 +419,7 @@
         else if(ceilf(_playerXPos) == 0)
             return _playerXPos > actualXOffset;
         else
-            return _playerXPos > ceilf(_playerXPos) - actualXOffset/2. - 0.08;
+            return _playerXPos > ceilf(_playerXPos) - actualXOffset/2. - 0.1;
     }
     else if(orientation == 2){
         if(cell.southExit)
@@ -325,13 +427,13 @@
         else if(ceilf(_playerYPos) == 0)
             return _playerYPos < actualYOffset;
         else
-            return _playerYPos > ceilf(_playerYPos) - actualYOffset/2. - 0.12;
+            return _playerYPos > ceilf(_playerYPos) - actualYOffset/2. - 0.1;
     }
     else if(orientation == 3){
         if(cell.westExit)
             return false;
         else
-            return _playerXPos < floorf(_playerXPos) + 0.05;
+            return _playerXPos < floorf(_playerXPos) + 0.1;
     }
 
     return true;
@@ -339,7 +441,21 @@
 
 
 - (BOOL) hitsSpikes:(int)orientation {
+//    GLfloat lol = _playerXPos;
+//    GLfloat lols = _playerYPos;
     
+    if(orientation == 0){
+        
+    }
+    else if(orientation == 1){
+        
+    }
+    else if(orientation == 2){
+        
+    }
+    else if(orientation == 3){
+        
+    }
     return false;
 }
 

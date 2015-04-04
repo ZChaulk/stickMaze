@@ -18,4 +18,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)returnPress:(id)sender {
+    [self.delegate notifyReturn];
+}
 @end

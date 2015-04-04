@@ -141,7 +141,7 @@
 
 - (IBAction)records:(id)sender {
     RecordsViewController *rvc = [[RecordsViewController alloc] initWithNibName:@"RecordsViewController" bundle:nil];
-    //rvc.delegate = self;
+    rvc.delegate = self;
     [self presentViewController:rvc animated:YES completion:nil];
 }
 
@@ -152,4 +152,7 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
+-(void)notifyReturn{
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
 @end

@@ -12,8 +12,7 @@
 #define StickMaze_MazeModel_h
 
 @interface MazeModel : NSObject {
-    //int _len;
-    int _startX, _startY, _exitX, _exitY;
+    int _spikeGenProbability;
     int _playerScale;
     int _playerXOffset, _playerYOffset;
     GLfloat _playerXPos, _playerYPos;

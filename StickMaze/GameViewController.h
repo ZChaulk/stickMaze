@@ -24,7 +24,7 @@ typedef enum{
     RIGHT
 }gravityBase;
 
-@interface GameViewController : GLKViewController<PauseMenuProtocolDelegate>{
+@interface GameViewController : GLKViewController<PauseMenuProtocolDelegate, UIApplicationDelegate>{
     CMMotionManager *motionMan;
     NSTimer *timer;
     float _avgAccX, _avgAccY, _avgAccZ, gravity;
@@ -35,6 +35,8 @@ typedef enum{
     BOOL zoomedOut;
 }
 @property id<GameViewControllerDelegate> gvDelegate;
+@property (strong, nonatomic) IBOutlet UILabel *lifeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
 
 - (IBAction)pause:(id)sender;
 

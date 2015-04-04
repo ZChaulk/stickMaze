@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordsViewController">
             <connections>
+                <outlet property="score" destination="CAs-X3-Xcn" id="J7g-Ik-zGj"/>
                 <outlet property="view" destination="1Tx-bd-jms" id="SGH-i3-FNp"/>
             </connections>
         </placeholder>
@@ -15,14 +16,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recordssssss" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5m-EA-rXT">
-                    <rect key="frame" x="238" y="168" width="107" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="y5m-EA-rXT">
+                    <rect key="frame" x="257" y="117" width="86" height="21"/>
+                    <attributedString key="attributedText">
+                        <fragment content="High Score">
+                            <attributes>
+                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jF1-Nd-qnL">
-                    <rect key="frame" x="8" y="8" width="47" height="30"/>
+                    <rect key="frame" x="8" y="28" width="47" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Xwb-Dg-fbT"/>
                         <constraint firstAttribute="width" constant="47" id="dZq-5r-Mks"/>
@@ -32,12 +40,25 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="returnPress:" destination="-1" eventType="touchUpInside" id="q9g-ae-YQk"/>
+                    </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAs-X3-Xcn">
+                    <rect key="frame" x="295" y="146" width="10" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="y5m-EA-rXT" firstAttribute="centerX" secondItem="CAs-X3-Xcn" secondAttribute="centerX" id="JRK-Hm-Kyw"/>
+                <constraint firstItem="CAs-X3-Xcn" firstAttribute="top" secondItem="y5m-EA-rXT" secondAttribute="bottom" constant="8" id="SyB-4B-s5B"/>
                 <constraint firstItem="jF1-Nd-qnL" firstAttribute="leading" secondItem="1Tx-bd-jms" secondAttribute="leadingMargin" id="T7u-rY-tjk"/>
-                <constraint firstItem="jF1-Nd-qnL" firstAttribute="top" secondItem="1Tx-bd-jms" secondAttribute="topMargin" id="f94-G4-gGB"/>
+                <constraint firstItem="y5m-EA-rXT" firstAttribute="top" secondItem="1Tx-bd-jms" secondAttribute="top" constant="117" id="UTB-qB-I9D"/>
+                <constraint firstItem="jF1-Nd-qnL" firstAttribute="top" secondItem="1Tx-bd-jms" secondAttribute="topMargin" constant="20" id="f94-G4-gGB"/>
+                <constraint firstAttribute="centerX" secondItem="y5m-EA-rXT" secondAttribute="centerX" id="qFU-7w-KtX"/>
             </constraints>
             <point key="canvasLocation" x="1365" y="1087"/>
         </view>

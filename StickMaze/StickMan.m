@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 @implementation StickMan
 
+@synthesize health, levelsCompletedThisGame;
+
 - (StickMan*) init{
     self = [super init];
     if(self){
@@ -33,6 +35,11 @@
         [self loadTexture:@"falling1.png" textureID:_fallingID[0]];
         [self loadTexture:@"falling2.png" textureID:_fallingID[1]];
         [self loadTexture:@"falling3.png" textureID:_fallingID[2]];
+        maxHealth = 8;
+        self.health = 4;
+        canBeHurt = true;
+        
+        self.levelsCompletedThisGame = 0;
     }
     return self;
 }
@@ -143,4 +150,39 @@
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     glDisable(GL_TEXTURE_2D);
 }
+
+- (bool) dealDamage { //return true if the player is alive
+    if(canBeHurt) {
+        self.health--;
+        if(self.health > 0) {
+            //set the invulnerability
+            canBeHurt = false;
+            //trigger the timer to turn off invulnerability
+            [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(setVulnerable) userInfo:nil repeats:NO];
+            return true;
+        }
+        else {
+            return false; //we have died
+        }
+    }
+    return true;
+}
+
+- (bool) healDamage { //return true if the player is healed
+    if(self.health < maxHealth) { //the player can be healed
+        self.health++;
+        return true;
+    }
+    else { //the player is currently at full health
+        return false;
+    }
+}
+
+- (void) setInvulnerable {
+    canBeHurt = false;
+}
+- (void) setVulnerable {
+    canBeHurt = true;
+}
+
 @end

@@ -11,7 +11,7 @@
 #import "GameViewController.h"
 #import "RecordsViewController.h"
 #import "StickMan.h"
-@interface HomeViewController : GLKViewController<GameViewControllerDelegate> {
+@interface HomeViewController : GLKViewController<GameViewControllerDelegate, RecordsViewControllerDelegate> {
     StickMan *_homeStick;
     BOOL starting;
     GLfloat xPos, yPos;

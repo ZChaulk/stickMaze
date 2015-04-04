@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol RecordsViewControllerDelegate <NSObject>
+
+-(void)notifyReturn;
+
+@end
+
 @interface RecordsViewController : UIViewController
+- (IBAction)returnPress:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *score;
+@property (nonatomic, strong) id<RecordsViewControllerDelegate> delegate;
 
 @end
