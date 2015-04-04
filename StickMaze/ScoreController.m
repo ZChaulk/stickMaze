@@ -25,8 +25,9 @@
             break; //jump out of the loop or else we'll just duplicate the new score all down the list
         }
     }
-    
-    _scores = [[NSMutableArray alloc] initWithCapacity:6];
+    NSArray *emptyScores = @[@0, @0, @0, @0, @0, @0];
+
+    _scores = [[NSMutableArray alloc] initWithArray:emptyScores];
     for(int i = 0; i < 6; i++) {
         [_scores replaceObjectAtIndex:i withObject:@(_gameScores[i])];
     }

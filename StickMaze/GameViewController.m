@@ -24,6 +24,7 @@
     [self setUpMotion];
     [self setupGL];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
+    _scoreCon = [[ScoreController alloc] init];
     zoomedOut = NO;
 }
 //motion section****************
@@ -281,6 +282,8 @@
 -(void)endGame:(PauseMenuViewController *)pauseMenuViewController{
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     [self dismissViewControllerAnimated:YES completion:nil];
+    [_scoreCon updateScores:player.levelsCompletedThisGame];
+    [_scoreCon saveScores];
     [self.gvDelegate notifyGameDone];
     
 }
