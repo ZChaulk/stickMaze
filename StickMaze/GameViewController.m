@@ -168,6 +168,16 @@
     //finally, check to see if we've hit any spikes
     if([mazeModel hitsSpikes:orientation]) {
         //see if we will deal damage to the player
+        if([player dealDamage]) { //damage dealt, player still alive
+            
+        }
+        else {
+            //kill the player and all that
+            
+            //update the scores
+            [_scoreCon updateScores:player.levelsCompletedThisGame];
+            [_scoreCon saveScores];
+        }
     }
     self.lifeLabel.text = [NSString stringWithFormat:@"Life: %d", player.health];
 }

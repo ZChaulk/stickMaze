@@ -9,6 +9,7 @@
 #import <GLKit/GLKit.h>
 #import <CoreMotion/CoreMotion.h>
 #import "PauseMenuViewController.h"
+#include "ScoreController.h"
 #import "StickMan.h"
 #import "MazeModel.h"
 @protocol GameViewControllerDelegate <NSObject>
@@ -33,6 +34,7 @@ typedef enum{
     gravityBase gBase;
     int startUpAcceleratorVal;
     BOOL zoomedOut;
+    ScoreController *_scoreCon;
 }
 @property id<GameViewControllerDelegate> gvDelegate;
 @property (strong, nonatomic) IBOutlet UILabel *lifeLabel;
