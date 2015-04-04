@@ -441,33 +441,43 @@
 
 
 - (BOOL) hitsSpikes:(int)orientation { //some of these are probably upside-down
-    bool spikesPresent;
-    int distToSpike;
-    int minDistToSpike = 0.25; //we need to compensate for the size of the stick figure
-    //check spikes below the player
-    spikesPresent = (orientation==0 && cell.northSpike) || (orientation==1 && cell.westSpike)
-    || (orientation==2 && cell.southSpike) || (orientation==3 && cell.eastSpike);
-    if(spikesPresent && (playerYPos - floorf(playerYPos) < minDistToSpike)) { //no offset
-        return true; //we hit a spike which is below us
+    MazeCell *cell = self.mazeCells[(int)floorf(_playerXPos)][(int)floorf(_playerYPos)];
+    
+    if(orientation == 0){
+        if(cell.northSpike) //below
+            return _playerYPos < floorf(_playerYPos) + 0.25;
+        if(cell.eastSpike) //right
+            return _playerXPos > ceilf(_playerXPos) - _playerXOffset - 0.25;
+        if(cell.westSpike) //left
+            return _playerXPos < floorf(_playerXPos) + 0.25;
     }
-    //check spikes above the player
-    spikesPresent = (orientation==0 && cell.southSpike) || (orientation==1 && cell.eastSpike) ||
-    (orientation==2 && cell.northSpike) || (orientation==3 && cell.westSpike);
-    if(spikesPresent && (ceilf(playerYPos) - playerYPos + 2.) < minDistToSpike) { //offset of 2. for height
-        return true;
+    else if(orientation == 1){
+        if(cell.eastSpike) //below
+            return _playerXPos > ceilf(_playerXPos) - _playerYOffset - 0.25;
+        if(cell.southSpike) //right
+            return _playerYPos > ceilf(_playerYPos) - _playerXOffset - 0.25;
+        if(cell.northSpike) //left
+            return _playerYPos < floorf(_playerYPos) + 0.25;
     }
-    //check spikes to the right of the player
-    spikesPresent = (orientation==0 && cell.eastSpike) || (orientation==1 && cell.northSpike) ||
-    (orientation==2 && cell.westSpike) || (orientation==3 && cell.southSpike);
-    if(spikesPresent && (ceilf(playerXPos) - playerXPos + 1.) < minDistToSpike) { //offset of 1. for width
-        return true;
+    else if(orientation == 2){
+        if(cell.southSpike) //below
+            return _playerYPos > ceilf(_playerYPos) - _playerYOffset - 0.25;
+        if(cell.westSpike) //right
+            return _playerXPos < floorf(_playerXPos) + 0.25;
+        if(cell.eastSpike) //left
+            return _playerXPos > ceilf(_playerXPos) - _playerXOffset - 0.25;
+        
     }
-    //check spikes to the left of the player
-    spikesPresent = (orientation==0 && cell.westSpike) || (orientation==1 && cell.southSpike)
-    || (orientation==2 && cell.eastSpike) || (orientation==3 && cell.northSpike);
-    if(spikesPresent && (playerXPos - floorf(playerXPos) < minDistToSpike)) { //no offset
-        return true;
+    else if(orientation == 3){
+        if(cell.westSpike) //below
+            return _playerXPos > ceilf(_playerXPos) - _playerYOffset;
+        if(cell.northSpike) //right
+            return _playerYPos < floorf(_playerYPos) + 0.25;
+        if(cell.southSpike) //left
+            return _playerYPos > ceilf(_playerYPos) - _playerXOffset - 0.25;
+
     }
+    
     return false;
 }
 
