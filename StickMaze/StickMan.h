@@ -31,6 +31,9 @@ typedef enum{
     int maxHealth;
     bool canBeHurt;
     bool isDead;
+    
+    int invulnTic;
+    bool drawThisFrm;
 }
 @property playerState state;
 @property bool isDead;

@@ -15,7 +15,7 @@
     self = [super init];
     if(self){
         self.state = STANDING;
-        runLeftTic = runRightTic = standUpTic = fallingTic = deadTic = 0;
+        runLeftTic = runRightTic = standUpTic = fallingTic = deadTic = invulnTic = 0;
         glGenTextures(1, &_standingID);
         glGenTextures(3, _runLeftID);
         glGenTextures(3, _runRightID);
@@ -77,12 +77,21 @@
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     
+    if(!canBeHurt) { //do invulnerability math if we are invulnerable
+        invulnTic = (invulnTic+1)%30; //consider changing the modded value if the animation is not timed properly
+        if(invulnTic == 0) { drawThisFrm = !drawThisFrm; }
+    }
+    else {
+        invulnTic = 0;
+        drawThisFrm = true;
+    }
+    
     if(self.state == STANDING){
-        glBindTexture(GL_TEXTURE_2D, _standingID);
+        if(drawThisFrm) { glBindTexture(GL_TEXTURE_2D, _standingID); }
         runLeftTic = runRightTic = fallingTic = standUpTic = 0;
     }
     else if(self.state == RUNNING_LEFT){
-        glBindTexture(GL_TEXTURE_2D, _runLeftID[runLeftTic/2]);
+        if(drawThisFrm) { glBindTexture(GL_TEXTURE_2D, _runLeftID[runLeftTic/2]); }
         runLeftTic++;
         if(runLeftTic/2 > 2)
             runLeftTic = 0;
@@ -90,21 +99,21 @@
         runRightTic = fallingTic = standUpTic = 0;
     }
     else if(self.state == RUNNING_RIGHT){
-        glBindTexture(GL_TEXTURE_2D, _runRightID[runRightTic/2]);
+        if(drawThisFrm) { glBindTexture(GL_TEXTURE_2D, _runRightID[runRightTic/2]); }
         runRightTic++;
         if(runRightTic/2> 2)
             runRightTic = 0;
         runLeftTic = fallingTic = standUpTic = 0;
     }
     else if(self.state == FALLING){
-         glBindTexture(GL_TEXTURE_2D, _fallingID[fallingTic/2]);
+        if(drawThisFrm) { glBindTexture(GL_TEXTURE_2D, _fallingID[fallingTic/2]); }
         fallingTic++;
         if(fallingTic/2 > 2)
             fallingTic = 0;
         runLeftTic = runRightTic = standUpTic = 0;
     }
     else if(self.state == RECOVERING){
-         glBindTexture(GL_TEXTURE_2D, _recoveringID[standUpTic/3]);
+        if(drawThisFrm) { glBindTexture(GL_TEXTURE_2D, _recoveringID[standUpTic/3]); }
         standUpTic++;
         if(standUpTic/3 > 2){
             standUpTic =  0;
@@ -113,7 +122,13 @@
         runLeftTic = runRightTic = fallingTic = 0;
     }
     else if(self.state == DEAD){
-        
+        if(drawThisFrm) { glBindTexture(GL_TEXTURE_2D, _recoveringID[2 - (standUpTic/3)]); }
+        standUpTic++;
+        if(standUpTic/3 > 2){
+            standUpTic = 0;
+            isDead = true;
+        }
+        runLeftTic = runRightTic = fallingTic = 0;
     }
       
 };
